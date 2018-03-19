@@ -14,6 +14,8 @@
 		D8CC1D8F205F480C008A5173 /* BudgeterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CC1D8E205F480C008A5173 /* BudgeterTests.swift */; };
 		D8CC1DA2205F4D8A008A5173 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CC1DA0205F4D8A008A5173 /* LoginViewController.swift */; };
 		D8CC1DA3205F4D8A008A5173 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8CC1DA1205F4D8A008A5173 /* LoginViewController.xib */; };
+		D8CC1DA7205F62C5008A5173 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CC1DA5205F62C5008A5173 /* DashboardViewController.swift */; };
+		D8CC1DA8205F62C5008A5173 /* DashboardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8CC1DA6205F62C5008A5173 /* DashboardViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +40,8 @@
 		D8CC1D90205F480C008A5173 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D8CC1DA0205F4D8A008A5173 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = ViewControllers/Login/LoginViewController.swift; sourceTree = "<group>"; };
 		D8CC1DA1205F4D8A008A5173 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LoginViewController.xib; path = ViewControllers/Login/LoginViewController.xib; sourceTree = "<group>"; };
+		D8CC1DA5205F62C5008A5173 /* DashboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DashboardViewController.swift; path = ViewControllers/Dashboard/DashboardViewController.swift; sourceTree = "<group>"; };
+		D8CC1DA6205F62C5008A5173 /* DashboardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DashboardViewController.xib; path = ViewControllers/Dashboard/DashboardViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +86,7 @@
 				D8CC1D9F205F4D60008A5173 /* Model */,
 				D8CC1D9C205F49D1008A5173 /* Support */,
 				D8CC1D9B205F49B9008A5173 /* Login */,
+				D8CC1DA4205F629A008A5173 /* Dashboard */,
 			);
 			path = Budgeter;
 			sourceTree = "<group>";
@@ -121,6 +126,15 @@
 				D8CC1D7D205F480C008A5173 /* Budgeter.xcdatamodeld */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		D8CC1DA4205F629A008A5173 /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				D8CC1DA5205F62C5008A5173 /* DashboardViewController.swift */,
+				D8CC1DA6205F62C5008A5173 /* DashboardViewController.xib */,
+			);
+			name = Dashboard;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -211,6 +225,7 @@
 				D8CC1D84205F480C008A5173 /* LaunchScreen.storyboard in Resources */,
 				D8CC1D81205F480C008A5173 /* Assets.xcassets in Resources */,
 				D8CC1DA3205F4D8A008A5173 /* LoginViewController.xib in Resources */,
+				D8CC1DA8205F62C5008A5173 /* DashboardViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -231,6 +246,7 @@
 				D8CC1DA2205F4D8A008A5173 /* LoginViewController.swift in Sources */,
 				D8CC1D7F205F480C008A5173 /* Budgeter.xcdatamodeld in Sources */,
 				D8CC1D77205F480C008A5173 /* AppDelegate.swift in Sources */,
+				D8CC1DA7205F62C5008A5173 /* DashboardViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
