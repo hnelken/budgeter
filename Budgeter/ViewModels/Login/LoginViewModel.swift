@@ -21,9 +21,8 @@ final class LoginViewModel {
 
     weak var delegate: LoginViewModelDelegate?
 
-    private(set) var isNewUser: Bool = false
-
     private var currentUser: BudgetUser?
+    private(set) var isNewUser: Bool = false
 
     // MARK: - CoreData
 
@@ -33,48 +32,21 @@ final class LoginViewModel {
 
     private func set(newPassword: String?) {
         currentUser?.password = newPassword
-        save(context: Constants.coreDataContext)
+        CoreDataInterface.shared.save()
     }
 
     private func checkForExistingUser() {
-        guard let context = Constants.coreDataContext else { return }
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: Constants.userEntityName)
-        request.returnsObjectsAsFaults = false
-        do {
-            guard let result = try context.fetch(request) as? [BudgetUser] else {
-                setupNewUser()
-                return
-            }
-            if let user = result.first {
-                currentUser = user
-            } else {
-                setupNewUser()
-            }
-        } catch {
+        if let user = CoreDataInterface.shared.getExistingUser() {
+            currentUser = user
+            isNewUser = false
+        } else {
             setupNewUser()
         }
     }
 
     private func setupNewUser() {
-        guard
-            let context = Constants.coreDataContext,
-            let entity = NSEntityDescription.entity(
-                forEntityName: Constants.userEntityName,
-                in: context)
-            else { return }
+        currentUser = CoreDataInterface.shared.createNewUser()
         isNewUser = true
-        currentUser = BudgetUser(entity: entity, insertInto: context)
-        currentUser?.password = ""
-        save(context: context)
-
-    }
-
-    private func save(context: NSManagedObjectContext?) {
-        do {
-            try context?.save()
-        } catch {
-            print("Failed saving")
-        }
     }
 
     // MARK: - Authentication
