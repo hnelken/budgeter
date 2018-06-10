@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import LocalAuthentication
 
 final class LoginViewController: UIViewController, LoginViewModelDelegate {
 
@@ -30,6 +29,14 @@ final class LoginViewController: UIViewController, LoginViewModelDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupButton()
+        setupUserFromStorage()
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if viewModel.isNewUser {
+            presentAlert(withTitle: "Welcome new user!", andMessage: "You may input any pin number to use as your password, or leave it blank to require only Touch ID")
+        }
     }
 
     // MARK: - Setup
@@ -37,6 +44,10 @@ final class LoginViewController: UIViewController, LoginViewModelDelegate {
     private func setupButton() {
         enterButton.layer.cornerRadius = enterButton.frame.height / 2
         enterButton.clipsToBounds = true
+    }
+
+    private func setupUserFromStorage() {
+        viewModel.setupUserFromStorage()
     }
 
     // MARK: - Actions
@@ -48,6 +59,9 @@ final class LoginViewController: UIViewController, LoginViewModelDelegate {
 
     // MARK: - LoginViewModelDelegate
 
+    func createdNewUser() {
+    }
+
     func authenticationSuccessful() {
         DispatchQueue.main.async { [weak self] in
             self?.inputField.text = ""
@@ -56,24 +70,19 @@ final class LoginViewController: UIViewController, LoginViewModelDelegate {
     }
 
     func authenticationFailed() {
-        DispatchQueue.main.async { [weak self] in
-            self?.inputField.becomeFirstResponder()
-            self?.presentAlert(
-                withTitle: "Authentication failed",
-                andMessage: "Sorry!")
-        }
+        presentAlert(withTitle: "Authentication failed",
+                     andMessage: "Sorry!")
     }
 
     func touchIDNotSupported() {
-        DispatchQueue.main.async { [weak self] in
-            self?.presentAlert(
-                withTitle: "Touch ID not available",
-                andMessage: "Your device is not configured for Touch ID.")
-        }
+        presentAlert(withTitle: "Touch ID not available",
+                     andMessage: "Your device is not configured for Touch ID.")
+
     }
 
     private func presentAlert(withTitle title: String, andMessage message: String) {
         DispatchQueue.main.async { [weak self] in
+            self?.inputField.resignFirstResponder()
             let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default))
             self?.present(alert, animated: true)

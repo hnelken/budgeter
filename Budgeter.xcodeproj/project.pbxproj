@@ -8,8 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		D88B6BE520CCC03100BF1B71 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88B6BE420CCC03100BF1B71 /* LoginViewModel.swift */; };
+		D88B6BE720CCC7BD00BF1B71 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88B6BE620CCC7BD00BF1B71 /* Constants.swift */; };
+		D88B6BF020CCCE1400BF1B71 /* Budgeter.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D88B6BEE20CCCE1400BF1B71 /* Budgeter.xcdatamodeld */; };
 		D8CC1D77205F480C008A5173 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CC1D76205F480C008A5173 /* AppDelegate.swift */; };
-		D8CC1D7F205F480C008A5173 /* Budgeter.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D8CC1D7D205F480C008A5173 /* Budgeter.xcdatamodeld */; };
 		D8CC1D81205F480C008A5173 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D8CC1D80205F480C008A5173 /* Assets.xcassets */; };
 		D8CC1D84205F480C008A5173 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8CC1D82205F480C008A5173 /* LaunchScreen.storyboard */; };
 		D8CC1D8F205F480C008A5173 /* BudgeterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CC1D8E205F480C008A5173 /* BudgeterTests.swift */; };
@@ -31,9 +32,10 @@
 
 /* Begin PBXFileReference section */
 		D88B6BE420CCC03100BF1B71 /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewModel.swift; path = ViewModels/Login/LoginViewModel.swift; sourceTree = "<group>"; };
+		D88B6BE620CCC7BD00BF1B71 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		D88B6BEF20CCCE1400BF1B71 /* Budgeter.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Budgeter.xcdatamodel; sourceTree = "<group>"; };
 		D8CC1D73205F480C008A5173 /* Budgeter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Budgeter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8CC1D76205F480C008A5173 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D8CC1D7E205F480C008A5173 /* Budgeter.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Budgeter.xcdatamodel; sourceTree = "<group>"; };
 		D8CC1D80205F480C008A5173 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D8CC1D83205F480C008A5173 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D8CC1D85205F480C008A5173 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 		D8CC1D9C205F49D1008A5173 /* Support */ = {
 			isa = PBXGroup;
 			children = (
+				D88B6BE620CCC7BD00BF1B71 /* Constants.swift */,
 				D8CC1D85205F480C008A5173 /* Info.plist */,
 				D8CC1D82205F480C008A5173 /* LaunchScreen.storyboard */,
 				D8CC1D80205F480C008A5173 /* Assets.xcassets */,
@@ -126,7 +129,7 @@
 		D8CC1D9F205F4D60008A5173 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				D8CC1D7D205F480C008A5173 /* Budgeter.xcdatamodeld */,
+				D88B6BEE20CCCE1400BF1B71 /* Budgeter.xcdatamodeld */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -247,10 +250,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				D8CC1DA2205F4D8A008A5173 /* LoginViewController.swift in Sources */,
-				D8CC1D7F205F480C008A5173 /* Budgeter.xcdatamodeld in Sources */,
 				D8CC1D77205F480C008A5173 /* AppDelegate.swift in Sources */,
 				D88B6BE520CCC03100BF1B71 /* LoginViewModel.swift in Sources */,
+				D88B6BF020CCCE1400BF1B71 /* Budgeter.xcdatamodeld in Sources */,
 				D8CC1DA7205F62C5008A5173 /* DashboardViewController.swift in Sources */,
+				D88B6BE720CCC7BD00BF1B71 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -466,13 +470,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		D8CC1D7D205F480C008A5173 /* Budgeter.xcdatamodeld */ = {
+		D88B6BEE20CCCE1400BF1B71 /* Budgeter.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				D8CC1D7E205F480C008A5173 /* Budgeter.xcdatamodel */,
+				D88B6BEF20CCCE1400BF1B71 /* Budgeter.xcdatamodel */,
 			);
-			currentVersion = D8CC1D7E205F480C008A5173 /* Budgeter.xcdatamodel */;
-			path = Budgeter.xcdatamodeld;
+			currentVersion = D88B6BEF20CCCE1400BF1B71 /* Budgeter.xcdatamodel */;
+			name = Budgeter.xcdatamodeld;
+			path = Models/Budgeter.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
