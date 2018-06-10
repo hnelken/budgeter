@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D88B6BE520CCC03100BF1B71 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88B6BE420CCC03100BF1B71 /* LoginViewModel.swift */; };
 		D8CC1D77205F480C008A5173 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CC1D76205F480C008A5173 /* AppDelegate.swift */; };
 		D8CC1D7F205F480C008A5173 /* Budgeter.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D8CC1D7D205F480C008A5173 /* Budgeter.xcdatamodeld */; };
 		D8CC1D81205F480C008A5173 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D8CC1D80205F480C008A5173 /* Assets.xcassets */; };
@@ -29,6 +30,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D88B6BE420CCC03100BF1B71 /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewModel.swift; path = ViewModels/Login/LoginViewModel.swift; sourceTree = "<group>"; };
 		D8CC1D73205F480C008A5173 /* Budgeter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Budgeter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8CC1D76205F480C008A5173 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D8CC1D7E205F480C008A5173 /* Budgeter.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Budgeter.xcdatamodel; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 		D8CC1D9B205F49B9008A5173 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				D88B6BE420CCC03100BF1B71 /* LoginViewModel.swift */,
 				D8CC1DA0205F4D8A008A5173 /* LoginViewController.swift */,
 				D8CC1DA1205F4D8A008A5173 /* LoginViewController.xib */,
 			);
@@ -246,6 +249,7 @@
 				D8CC1DA2205F4D8A008A5173 /* LoginViewController.swift in Sources */,
 				D8CC1D7F205F480C008A5173 /* Budgeter.xcdatamodeld in Sources */,
 				D8CC1D77205F480C008A5173 /* AppDelegate.swift in Sources */,
+				D88B6BE520CCC03100BF1B71 /* LoginViewModel.swift in Sources */,
 				D8CC1DA7205F62C5008A5173 /* DashboardViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -448,6 +452,7 @@
 				D8CC1D95205F480C008A5173 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D8CC1D96205F480C008A5173 /* Build configuration list for PBXNativeTarget "BudgeterTests" */ = {
 			isa = XCConfigurationList;
@@ -456,6 +461,7 @@
 				D8CC1D98205F480C008A5173 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
