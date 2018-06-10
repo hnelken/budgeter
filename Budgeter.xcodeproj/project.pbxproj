@@ -83,10 +83,11 @@
 		D8CC1D75205F480C008A5173 /* Budgeter */ = {
 			isa = PBXGroup;
 			children = (
-				D8CC1D9F205F4D60008A5173 /* Model */,
-				D8CC1D9C205F49D1008A5173 /* Support */,
+				D8CC1D76205F480C008A5173 /* AppDelegate.swift */,
 				D8CC1D9B205F49B9008A5173 /* Login */,
 				D8CC1DA4205F629A008A5173 /* Dashboard */,
+				D8CC1D9F205F4D60008A5173 /* Model */,
+				D8CC1D9C205F49D1008A5173 /* Support */,
 			);
 			path = Budgeter;
 			sourceTree = "<group>";
@@ -113,7 +114,6 @@
 			isa = PBXGroup;
 			children = (
 				D8CC1D85205F480C008A5173 /* Info.plist */,
-				D8CC1D76205F480C008A5173 /* AppDelegate.swift */,
 				D8CC1D82205F480C008A5173 /* LaunchScreen.storyboard */,
 				D8CC1D80205F480C008A5173 /* Assets.xcassets */,
 			);
