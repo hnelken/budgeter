@@ -94,7 +94,7 @@ final class CoreDataInterface {
 
     // MARK: - Transaction
 
-    func createTransaction(named: String, amount: Double, slice: BudgetSlice?, date: Date, paymentSource: String) -> BudgetTransaction? {
+    func createTransaction(named: String, amount: Double, slice: BudgetSlice?, date: Date) -> BudgetTransaction? {
         guard
             let context = context,
             let entity = NSEntityDescription.entity(
@@ -105,7 +105,6 @@ final class CoreDataInterface {
         newTransaction.name = named
         newTransaction.amount = amount
         newTransaction.date = NSDate(timeIntervalSince1970: date.timeIntervalSince1970)
-        newTransaction.paymentSource = paymentSource
         newTransaction.slice = slice
         save()
         return newTransaction
