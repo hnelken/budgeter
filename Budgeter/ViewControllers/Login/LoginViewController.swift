@@ -18,7 +18,7 @@ final class LoginViewController: UIViewController, LoginViewModelDelegate {
     // MARK: - Life-Cycle
 
     init() {
-        super.init(nibName: "LoginViewController", bundle: Bundle(for: LoginViewController.self))
+        super.init(nibName: viewModel.nibName, bundle: Bundle(for: LoginViewController.self))
         viewModel.delegate = self
     }
 

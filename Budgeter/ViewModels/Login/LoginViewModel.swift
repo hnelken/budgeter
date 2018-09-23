@@ -21,6 +21,10 @@ final class LoginViewModel {
 
     weak var delegate: LoginViewModelDelegate?
 
+    var nibName: String {
+        return "LoginViewController"
+    }
+
     private var currentUser: BudgetUser?
     private(set) var isNewUser = false
 

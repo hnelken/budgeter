@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D87F969C21583C0B006E76CB /* Budgeter.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D87F969A21583C0B006E76CB /* Budgeter.xcdatamodeld */; };
+		D8847B7021583A5D007B77D2 /* BudgetSetupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8847B6F21583A5D007B77D2 /* BudgetSetupViewController.xib */; };
 		D88B6BE520CCC03100BF1B71 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88B6BE420CCC03100BF1B71 /* LoginViewModel.swift */; };
 		D88B6BE720CCC7BD00BF1B71 /* UIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88B6BE620CCC7BD00BF1B71 /* UIConstants.swift */; };
-		D88B6BF020CCCE1400BF1B71 /* Budgeter.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D88B6BEE20CCCE1400BF1B71 /* Budgeter.xcdatamodeld */; };
 		D88B6BF220CCDE7B00BF1B71 /* CoreDataInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88B6BF120CCDE7B00BF1B71 /* CoreDataInterface.swift */; };
 		D8CC1D77205F480C008A5173 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CC1D76205F480C008A5173 /* AppDelegate.swift */; };
 		D8CC1D81205F480C008A5173 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D8CC1D80205F480C008A5173 /* Assets.xcassets */; };
@@ -19,6 +20,7 @@
 		D8CC1DA3205F4D8A008A5173 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8CC1DA1205F4D8A008A5173 /* LoginViewController.xib */; };
 		D8CC1DA7205F62C5008A5173 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CC1DA5205F62C5008A5173 /* DashboardViewController.swift */; };
 		D8CC1DA8205F62C5008A5173 /* DashboardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8CC1DA6205F62C5008A5173 /* DashboardViewController.xib */; };
+		D8EF51B8215835F300182987 /* BudgetSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8EF51B7215835F300182987 /* BudgetSetupViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,10 +34,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		D88B6BE420CCC03100BF1B71 /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewModel.swift; path = ViewModels/Login/LoginViewModel.swift; sourceTree = "<group>"; };
+		D87F969B21583C0B006E76CB /* Budgeter.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Budgeter.xcdatamodel; sourceTree = "<group>"; };
+		D8847B6F21583A5D007B77D2 /* BudgetSetupViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BudgetSetupViewController.xib; sourceTree = "<group>"; };
+		D88B6BE420CCC03100BF1B71 /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		D88B6BE620CCC7BD00BF1B71 /* UIConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIConstants.swift; sourceTree = "<group>"; };
-		D88B6BEF20CCCE1400BF1B71 /* Budgeter.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Budgeter.xcdatamodel; sourceTree = "<group>"; };
-		D88B6BF120CCDE7B00BF1B71 /* CoreDataInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoreDataInterface.swift; path = Models/CoreDataInterface.swift; sourceTree = "<group>"; };
+		D88B6BF120CCDE7B00BF1B71 /* CoreDataInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataInterface.swift; sourceTree = "<group>"; };
 		D8CC1D73205F480C008A5173 /* Budgeter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Budgeter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8CC1D76205F480C008A5173 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D8CC1D80205F480C008A5173 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -44,10 +47,11 @@
 		D8CC1D8A205F480C008A5173 /* BudgeterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BudgeterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8CC1D8E205F480C008A5173 /* BudgeterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgeterTests.swift; sourceTree = "<group>"; };
 		D8CC1D90205F480C008A5173 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D8CC1DA0205F4D8A008A5173 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = ViewControllers/Login/LoginViewController.swift; sourceTree = "<group>"; };
-		D8CC1DA1205F4D8A008A5173 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LoginViewController.xib; path = ViewControllers/Login/LoginViewController.xib; sourceTree = "<group>"; };
-		D8CC1DA5205F62C5008A5173 /* DashboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DashboardViewController.swift; path = ViewControllers/Dashboard/DashboardViewController.swift; sourceTree = "<group>"; };
-		D8CC1DA6205F62C5008A5173 /* DashboardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DashboardViewController.xib; path = ViewControllers/Dashboard/DashboardViewController.xib; sourceTree = "<group>"; };
+		D8CC1DA0205F4D8A008A5173 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		D8CC1DA1205F4D8A008A5173 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		D8CC1DA5205F62C5008A5173 /* DashboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
+		D8CC1DA6205F62C5008A5173 /* DashboardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DashboardViewController.xib; sourceTree = "<group>"; };
+		D8EF51B7215835F300182987 /* BudgetSetupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetSetupViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +72,84 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D8847B6B21583724007B77D2 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D8847B6C21583738007B77D2 /* Login */,
+				D8847B6D2158373D007B77D2 /* Dashboard */,
+				D8847B6E21583743007B77D2 /* Setup */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		D8847B6C21583738007B77D2 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				D8CC1DA1205F4D8A008A5173 /* LoginViewController.xib */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		D8847B6D2158373D007B77D2 /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				D8CC1DA6205F62C5008A5173 /* DashboardViewController.xib */,
+			);
+			path = Dashboard;
+			sourceTree = "<group>";
+		};
+		D8847B6E21583743007B77D2 /* Setup */ = {
+			isa = PBXGroup;
+			children = (
+				D8847B6F21583A5D007B77D2 /* BudgetSetupViewController.xib */,
+			);
+			path = Setup;
+			sourceTree = "<group>";
+		};
+		D8AB841A2158363D00A1EE58 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				D8AB841C2158368000A1EE58 /* Login */,
+				D8AB841D2158368500A1EE58 /* Dashboard */,
+				D8AB841E2158369600A1EE58 /* Setup */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		D8AB841B2158365B00A1EE58 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				D8FACC36215836CF0011CC98 /* Login */,
+				D8FACC37215836D70011CC98 /* Dashboard */,
+				D8FACC38215836E20011CC98 /* Setup */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		D8AB841C2158368000A1EE58 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				D8CC1DA0205F4D8A008A5173 /* LoginViewController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		D8AB841D2158368500A1EE58 /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				D8CC1DA5205F62C5008A5173 /* DashboardViewController.swift */,
+			);
+			path = Dashboard;
+			sourceTree = "<group>";
+		};
+		D8AB841E2158369600A1EE58 /* Setup */ = {
+			isa = PBXGroup;
+			children = (
+				D8EF51B7215835F300182987 /* BudgetSetupViewController.swift */,
+			);
+			path = Setup;
+			sourceTree = "<group>";
+		};
 		D8CC1D6A205F480C008A5173 = {
 			isa = PBXGroup;
 			children = (
@@ -90,9 +172,10 @@
 			isa = PBXGroup;
 			children = (
 				D8CC1D76205F480C008A5173 /* AppDelegate.swift */,
-				D8CC1D9B205F49B9008A5173 /* Login */,
-				D8CC1DA4205F629A008A5173 /* Dashboard */,
-				D8CC1D9F205F4D60008A5173 /* Model */,
+				D8847B6B21583724007B77D2 /* Views */,
+				D8AB841B2158365B00A1EE58 /* ViewModels */,
+				D8AB841A2158363D00A1EE58 /* ViewControllers */,
+				D8CC1D9F205F4D60008A5173 /* Models */,
 				D8CC1D9C205F49D1008A5173 /* Support */,
 			);
 			path = Budgeter;
@@ -107,20 +190,9 @@
 			path = BudgeterTests;
 			sourceTree = "<group>";
 		};
-		D8CC1D9B205F49B9008A5173 /* Login */ = {
-			isa = PBXGroup;
-			children = (
-				D88B6BE420CCC03100BF1B71 /* LoginViewModel.swift */,
-				D8CC1DA0205F4D8A008A5173 /* LoginViewController.swift */,
-				D8CC1DA1205F4D8A008A5173 /* LoginViewController.xib */,
-			);
-			name = Login;
-			sourceTree = "<group>";
-		};
 		D8CC1D9C205F49D1008A5173 /* Support */ = {
 			isa = PBXGroup;
 			children = (
-				D88B6BE620CCC7BD00BF1B71 /* UIConstants.swift */,
 				D8CC1D85205F480C008A5173 /* Info.plist */,
 				D8CC1D82205F480C008A5173 /* LaunchScreen.storyboard */,
 				D8CC1D80205F480C008A5173 /* Assets.xcassets */,
@@ -128,22 +200,36 @@
 			name = Support;
 			sourceTree = "<group>";
 		};
-		D8CC1D9F205F4D60008A5173 /* Model */ = {
+		D8CC1D9F205F4D60008A5173 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				D88B6BE620CCC7BD00BF1B71 /* UIConstants.swift */,
 				D88B6BF120CCDE7B00BF1B71 /* CoreDataInterface.swift */,
-				D88B6BEE20CCCE1400BF1B71 /* Budgeter.xcdatamodeld */,
+				D87F969A21583C0B006E76CB /* Budgeter.xcdatamodeld */,
 			);
-			name = Model;
+			path = Models;
 			sourceTree = "<group>";
 		};
-		D8CC1DA4205F629A008A5173 /* Dashboard */ = {
+		D8FACC36215836CF0011CC98 /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				D8CC1DA5205F62C5008A5173 /* DashboardViewController.swift */,
-				D8CC1DA6205F62C5008A5173 /* DashboardViewController.xib */,
+				D88B6BE420CCC03100BF1B71 /* LoginViewModel.swift */,
 			);
-			name = Dashboard;
+			path = Login;
+			sourceTree = "<group>";
+		};
+		D8FACC37215836D70011CC98 /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Dashboard;
+			sourceTree = "<group>";
+		};
+		D8FACC38215836E20011CC98 /* Setup */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Setup;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -231,6 +317,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D8847B7021583A5D007B77D2 /* BudgetSetupViewController.xib in Resources */,
 				D8CC1D84205F480C008A5173 /* LaunchScreen.storyboard in Resources */,
 				D8CC1D81205F480C008A5173 /* Assets.xcassets in Resources */,
 				D8CC1DA3205F4D8A008A5173 /* LoginViewController.xib in Resources */,
@@ -253,10 +340,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				D8CC1DA2205F4D8A008A5173 /* LoginViewController.swift in Sources */,
+				D87F969C21583C0B006E76CB /* Budgeter.xcdatamodeld in Sources */,
 				D8CC1D77205F480C008A5173 /* AppDelegate.swift in Sources */,
 				D88B6BF220CCDE7B00BF1B71 /* CoreDataInterface.swift in Sources */,
 				D88B6BE520CCC03100BF1B71 /* LoginViewModel.swift in Sources */,
-				D88B6BF020CCCE1400BF1B71 /* Budgeter.xcdatamodeld in Sources */,
+				D8EF51B8215835F300182987 /* BudgetSetupViewController.swift in Sources */,
 				D8CC1DA7205F62C5008A5173 /* DashboardViewController.swift in Sources */,
 				D88B6BE720CCC7BD00BF1B71 /* UIConstants.swift in Sources */,
 			);
@@ -474,14 +562,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		D88B6BEE20CCCE1400BF1B71 /* Budgeter.xcdatamodeld */ = {
+		D87F969A21583C0B006E76CB /* Budgeter.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				D88B6BEF20CCCE1400BF1B71 /* Budgeter.xcdatamodel */,
+				D87F969B21583C0B006E76CB /* Budgeter.xcdatamodel */,
 			);
-			currentVersion = D88B6BEF20CCCE1400BF1B71 /* Budgeter.xcdatamodel */;
-			name = Budgeter.xcdatamodeld;
-			path = Models/Budgeter.xcdatamodeld;
+			currentVersion = D87F969B21583C0B006E76CB /* Budgeter.xcdatamodel */;
+			path = Budgeter.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
