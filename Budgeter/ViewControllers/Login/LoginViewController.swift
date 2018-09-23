@@ -59,9 +59,6 @@ final class LoginViewController: UIViewController, LoginViewModelDelegate {
 
     // MARK: - LoginViewModelDelegate
 
-    func createdNewUser() {
-    }
-
     func authenticationSuccessful() {
         DispatchQueue.main.async { [weak self] in
             self?.inputField.text = ""

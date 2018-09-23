@@ -22,7 +22,7 @@ final class LoginViewModel {
     weak var delegate: LoginViewModelDelegate?
 
     private var currentUser: BudgetUser?
-    private(set) var isNewUser: Bool = false
+    private(set) var isNewUser = false
 
     // MARK: - CoreData
 
@@ -73,17 +73,18 @@ final class LoginViewModel {
     private func authenticateViaTouchID() {
         let context = LAContext()
         var error: NSError?
-        
-        if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
-            context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: "Authorization") { [unowned self] success, _ in
-                if success {
-                    self.authenticationSuccessful()
-                } else {
-                    self.authenticationFailed()
-                }
-            }
-        } else {
+
+        guard context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) else {
             delegate?.touchIDNotSupported()
+            return
+        }
+
+        context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: "Authorization") { [unowned self] success, _ in
+            if success {
+                self.authenticationSuccessful()
+            } else {
+                self.authenticationFailed()
+            }
         }
     }
 
