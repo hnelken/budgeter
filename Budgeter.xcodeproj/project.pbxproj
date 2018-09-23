@@ -20,6 +20,7 @@
 		D8CC1DA3205F4D8A008A5173 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8CC1DA1205F4D8A008A5173 /* LoginViewController.xib */; };
 		D8CC1DA7205F62C5008A5173 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CC1DA5205F62C5008A5173 /* DashboardViewController.swift */; };
 		D8CC1DA8205F62C5008A5173 /* DashboardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8CC1DA6205F62C5008A5173 /* DashboardViewController.xib */; };
+		D8CEA55C21585EF100036263 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CEA55B21585EF100036263 /* RoundedButton.swift */; };
 		D8EF51B8215835F300182987 /* BudgetSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8EF51B7215835F300182987 /* BudgetSetupViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -51,6 +52,7 @@
 		D8CC1DA1205F4D8A008A5173 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		D8CC1DA5205F62C5008A5173 /* DashboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		D8CC1DA6205F62C5008A5173 /* DashboardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DashboardViewController.xib; sourceTree = "<group>"; };
+		D8CEA55B21585EF100036263 /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RoundedButton.swift; path = Budgeter/Views/RoundedButton.swift; sourceTree = SOURCE_ROOT; };
 		D8EF51B7215835F300182987 /* BudgetSetupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetSetupViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -75,6 +77,7 @@
 		D8847B6B21583724007B77D2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				D8CEA55B21585EF100036263 /* RoundedButton.swift */,
 				D8847B6C21583738007B77D2 /* Login */,
 				D8847B6D2158373D007B77D2 /* Dashboard */,
 				D8847B6E21583743007B77D2 /* Setup */,
@@ -343,6 +346,7 @@
 				D87F969C21583C0B006E76CB /* Budgeter.xcdatamodeld in Sources */,
 				D8CC1D77205F480C008A5173 /* AppDelegate.swift in Sources */,
 				D88B6BF220CCDE7B00BF1B71 /* CoreDataInterface.swift in Sources */,
+				D8CEA55C21585EF100036263 /* RoundedButton.swift in Sources */,
 				D88B6BE520CCC03100BF1B71 /* LoginViewModel.swift in Sources */,
 				D8EF51B8215835F300182987 /* BudgetSetupViewController.swift in Sources */,
 				D8CC1DA7205F62C5008A5173 /* DashboardViewController.swift in Sources */,

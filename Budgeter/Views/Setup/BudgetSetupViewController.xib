@@ -1,7 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13142" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12042"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -11,8 +15,62 @@
         <view contentMode="scaleToFill" id="iN0-l3-epB">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter the name of your first bucket to begin budgeting yourself for once." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VBY-vQ-m5t">
+                    <rect key="frame" x="40" y="136" width="295" height="44"/>
+                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="16"/>
+                    <color key="textColor" red="0.29411764705882354" green="0.29411764705882354" blue="0.29411764705882354" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Bucket name" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="qcn-h3-okb">
+                    <rect key="frame" x="40" y="313.5" width="295" height="60"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="LpO-Xn-dNI"/>
+                    </constraints>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="16"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textField>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3b1-jT-EG9">
+                    <rect key="frame" x="40" y="70" width="295" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="fzv-ST-ART"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="24"/>
+                    <color key="textColor" red="0.066666666666666666" green="0.066666666666666666" blue="0.29411764705882354" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nAo-g7-E2X" customClass="RoundedButton" customModule="Budgeter" customModuleProvider="target">
+                    <rect key="frame" x="107" y="421.5" width="160" height="40"/>
+                    <color key="backgroundColor" red="0.29411764705882354" green="0.29411764705882354" blue="0.29411764705882354" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="160" id="9gg-CO-Hcg"/>
+                        <constraint firstAttribute="height" constant="40" id="bjj-06-HQQ"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="16"/>
+                    <state key="normal" title="Enter">
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                </button>
+            </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="qcn-h3-okb" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="0KW-ui-Pgp"/>
+                <constraint firstItem="3b1-jT-EG9" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="40" id="JKa-fn-DnR"/>
+                <constraint firstItem="VBY-vQ-m5t" firstAttribute="top" secondItem="3b1-jT-EG9" secondAttribute="bottom" constant="16" id="JdV-2l-xlN"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="VBY-vQ-m5t" secondAttribute="trailing" constant="40" id="W7Z-2d-29b"/>
+                <constraint firstItem="nAo-g7-E2X" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="XIQ-ev-c6d"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="3b1-jT-EG9" secondAttribute="trailing" constant="40" id="ZHS-Yb-Yex"/>
+                <constraint firstItem="VBY-vQ-m5t" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="40" id="ce7-e8-jAx"/>
+                <constraint firstItem="qcn-h3-okb" firstAttribute="top" relation="greaterThanOrEqual" secondItem="VBY-vQ-m5t" secondAttribute="bottom" constant="24" id="fk2-7O-frt"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="qcn-h3-okb" secondAttribute="trailing" constant="40" id="jtN-PD-wvU"/>
+                <constraint firstItem="qcn-h3-okb" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="loX-BA-v1E"/>
+                <constraint firstItem="qcn-h3-okb" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="40" id="oQd-4e-rdA"/>
+                <constraint firstItem="nAo-g7-E2X" firstAttribute="top" secondItem="qcn-h3-okb" secondAttribute="bottom" constant="48" id="t0j-pd-zSf"/>
+                <constraint firstItem="3b1-jT-EG9" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="50" id="ue7-oz-45p"/>
+            </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="24.5" y="51.5"/>
         </view>
     </objects>
 </document>
