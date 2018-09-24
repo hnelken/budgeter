@@ -17,7 +17,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter the name of your first bucket to begin budgeting yourself for once." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VBY-vQ-m5t">
-                    <rect key="frame" x="40" y="136" width="295" height="44"/>
+                    <rect key="frame" x="40" y="150" width="295" height="44"/>
                     <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="16"/>
                     <color key="textColor" red="0.29411764705882354" green="0.29411764705882354" blue="0.29411764705882354" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
@@ -32,7 +32,7 @@
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textField>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3b1-jT-EG9">
-                    <rect key="frame" x="40" y="70" width="295" height="50"/>
+                    <rect key="frame" x="40" y="84" width="295" height="50"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="fzv-ST-ART"/>
                     </constraints>
@@ -67,7 +67,7 @@
                 <constraint firstItem="qcn-h3-okb" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="loX-BA-v1E"/>
                 <constraint firstItem="qcn-h3-okb" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="40" id="oQd-4e-rdA"/>
                 <constraint firstItem="nAo-g7-E2X" firstAttribute="top" secondItem="qcn-h3-okb" secondAttribute="bottom" constant="48" id="t0j-pd-zSf"/>
-                <constraint firstItem="3b1-jT-EG9" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="50" id="ue7-oz-45p"/>
+                <constraint firstItem="3b1-jT-EG9" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="64" id="ue7-oz-45p"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <point key="canvasLocation" x="24.5" y="51.5"/>

@@ -28,6 +28,7 @@ final class LoginViewController: UIViewController, LoginViewModelDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.isNavigationBarHidden = true
         setupButton()
         setupUserFromStorage()
     }
