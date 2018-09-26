@@ -10,7 +10,7 @@ import UIKit
 
 final class LoginViewController: UIViewController, LoginViewModelDelegate {
 
-    @IBOutlet weak var enterButton: UIButton!
+    @IBOutlet weak var enterButton: RoundedButton!
     @IBOutlet weak var inputField: UITextField!
 
     private var viewModel = LoginViewModel()
@@ -29,26 +29,37 @@ final class LoginViewController: UIViewController, LoginViewModelDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.isNavigationBarHidden = true
-        setupButton()
         setupUserFromStorage()
+        registerKeyboardNotifications()
     }
 
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        if viewModel.isNewUser {
-            presentAlert(withTitle: "Welcome new user!", andMessage: "You may input any pin number to use as your password, or leave it blank to require only Touch ID")
-        }
+    deinit {
+        removeKeyboardNotifications()
     }
 
     // MARK: - Setup
 
-    private func setupButton() {
-        enterButton.layer.cornerRadius = enterButton.frame.height / 2
-        enterButton.clipsToBounds = true
-    }
-
     private func setupUserFromStorage() {
         viewModel.setupUserFromStorage()
+    }
+
+    private func registerKeyboardNotifications() {
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(keyboardDidShow(_:)),
+            name: .UIKeyboardDidShow,
+            object: view.window
+        )
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(keyboardWillHide(_:)),
+            name: .UIKeyboardWillHide,
+            object: view.window
+        )
+    }
+
+    private func removeKeyboardNotifications() {
+        NotificationCenter.default.removeObserver(self)
     }
 
     // MARK: - Actions
@@ -56,6 +67,27 @@ final class LoginViewController: UIViewController, LoginViewModelDelegate {
     @IBAction func enterButtonPressed(_ sender: Any) {
         inputField.resignFirstResponder()
         viewModel.authenticate(textFieldContent: inputField.text)
+    }
+
+    @objc private func keyboardDidShow(_ sender: Notification) {
+        guard let keyboardRect = sender.userInfo?[UIKeyboardFrameEndUserInfoKey] as? CGRect else { return }
+
+        let keyboardOriginY = UIScreen.main.bounds.height - keyboardRect.height
+        let movementThreshold = enterButton.frame.maxY + 8
+        if view.frame.origin.y == 0 && keyboardOriginY < movementThreshold {
+            let offset = movementThreshold - keyboardOriginY
+            UIView.animate(withDuration: 0.15) { [weak self] in
+                self?.view.frame.origin.y -= offset
+            }
+        }
+    }
+
+    @objc private func keyboardWillHide(_ sender: Notification) {
+        if view.frame.origin.y != 0 {
+            UIView.animate(withDuration: 0.15) { [weak self] in
+                self?.view.frame.origin.y = 0
+            }
+        }
     }
 
     // MARK: - LoginViewModelDelegate
