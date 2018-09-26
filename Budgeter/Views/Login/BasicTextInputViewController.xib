@@ -9,9 +9,11 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController" customModule="Budgeter" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BasicTextInputViewController" customModule="Budgeter" customModuleProvider="target">
             <connections>
-                <outlet property="enterButton" destination="cHH-NA-Khe" id="2ZQ-LF-yA0"/>
+                <outlet property="button" destination="cHH-NA-Khe" id="2ZQ-LF-yA0"/>
+                <outlet property="detailLabel" destination="EKE-LU-NtV" id="frU-2P-Xe4"/>
+                <outlet property="headerLabel" destination="Qkq-2d-Hqh" id="oGi-2M-2aH"/>
                 <outlet property="inputField" destination="6DE-Uq-SyC" id="hhz-Oe-8X3"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -29,14 +31,14 @@
                         <constraint firstAttribute="width" constant="160" id="DMA-Eo-I3O"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="16"/>
-                    <state key="normal" title="Enter">
+                    <state key="normal" title="Button">
                         <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
                     <connections>
                         <action selector="enterButtonPressed:" destination="-1" eventType="touchUpInside" id="0Dv-VT-aT2"/>
                     </connections>
                 </button>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="6DE-Uq-SyC">
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Placeholder" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="6DE-Uq-SyC">
                     <rect key="frame" x="40" y="338" width="334" height="60"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="60" id="m7M-dz-uff"/>
@@ -45,13 +47,14 @@
                     <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="16"/>
                     <textInputTraits key="textInputTraits" keyboardType="numberPad" secureTextEntry="YES"/>
                 </textField>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Whether you're a new user, or an old, enter the password for your device or leave it blank to use Touch ID." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EKE-LU-NtV">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EKE-LU-NtV">
                     <rect key="frame" x="40" y="146" width="334" height="65.666666666666686"/>
+                    <string key="text">Detail text detail text detail text detail text detail text detail text detail text detail text detail text detail text detail text detail text</string>
                     <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="16"/>
                     <color key="textColor" red="0.29411764709999999" green="0.29411764709999999" blue="0.29411764709999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qkq-2d-Hqh">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Header Text" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qkq-2d-Hqh">
                     <rect key="frame" x="40" y="80" width="334" height="50"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="Xdn-Vw-16m"/>
@@ -70,7 +73,7 @@
                 <constraint firstItem="Qkq-2d-Hqh" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="40" id="N62-Nn-Xr4"/>
                 <constraint firstAttribute="trailing" secondItem="EKE-LU-NtV" secondAttribute="trailing" constant="40" id="Wh6-Ac-vjy"/>
                 <constraint firstAttribute="trailing" secondItem="6DE-Uq-SyC" secondAttribute="trailing" constant="40" id="ayU-u2-cG9"/>
-                <constraint firstItem="6DE-Uq-SyC" firstAttribute="top" relation="greaterThanOrEqual" secondItem="EKE-LU-NtV" secondAttribute="bottom" constant="16" id="cRY-nL-jzY"/>
+                <constraint firstItem="6DE-Uq-SyC" firstAttribute="top" relation="greaterThanOrEqual" secondItem="EKE-LU-NtV" secondAttribute="bottom" constant="32" id="cRY-nL-jzY"/>
                 <constraint firstItem="Qkq-2d-Hqh" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="80" id="lid-9l-CA2"/>
                 <constraint firstItem="cHH-NA-Khe" firstAttribute="top" secondItem="6DE-Uq-SyC" secondAttribute="bottom" constant="32" id="oFZ-Ks-RyE"/>
                 <constraint firstItem="6DE-Uq-SyC" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="40" id="ry0-YK-qwv"/>

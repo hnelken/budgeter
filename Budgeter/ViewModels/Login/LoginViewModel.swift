@@ -17,13 +17,22 @@ protocol LoginViewModelDelegate: class {
     func touchIDNotSupported()
 }
 
-final class LoginViewModel {
+final class LoginViewModel: BasicTextInputViewModel {
 
     weak var delegate: LoginViewModelDelegate?
-
-    var nibName: String {
-        return "LoginViewController"
+    var headerText: String {
+        return "Welcome!"
     }
+    var detailText: String {
+        return "Enter your password to continue, or leave it blank to use Touch ID, even if its your first time!"
+    }
+    var buttonText: String {
+        return "Enter"
+    }
+    var placeHolderText: String {
+        return "Password"
+    }
+    var buttonAction: (() -> ())?
 
     private var currentUser: BudgetUser?
     private(set) var isNewUser = false
@@ -56,9 +65,6 @@ final class LoginViewModel {
     // MARK: - Authentication
 
     func authenticate(textFieldContent: String?) {
-        if isNewUser {
-            set(newPassword: textFieldContent)
-        }
         if let text = textFieldContent, !text.isEmpty {
             authenticateViaPassword(text)
         } else {
@@ -67,7 +73,11 @@ final class LoginViewModel {
     }
 
     private func authenticateViaPassword(_ text: String) {
-        if text == currentUser?.password {
+        if isNewUser {
+            set(newPassword: text)
+            authenticationSuccessful()
+        }
+        else if text == currentUser?.password {
             authenticationSuccessful()
         } else {
             authenticationFailed()
@@ -85,6 +95,9 @@ final class LoginViewModel {
 
         context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: "Authorization") { [unowned self] success, _ in
             if success {
+                if self.isNewUser {
+                    self.set(newPassword: "")
+                }
                 self.authenticationSuccessful()
             } else {
                 self.authenticationFailed()
