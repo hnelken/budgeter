@@ -17,7 +17,6 @@ final class CoreDataInterface {
     private init() {}
     private struct Constants {
         static let userEntityName = "BudgetUser"
-        static let sliceEntityName = "BudgetSlice"
         static let transactionEntityName = "BudgetTransaction"
     }
 
@@ -54,11 +53,6 @@ final class CoreDataInterface {
         }
     }
 
-    func addSlice(_ slice: BudgetSlice) {
-        guard let user = getExistingUser() else { return }
-        user.addToSlices(slice)
-    }
-
     func createNewUser() -> BudgetUser? {
         guard
             let context = context,
@@ -68,33 +62,13 @@ final class CoreDataInterface {
             else { return nil }
         let newUser = BudgetUser(entity: entity, insertInto: context)
         newUser.password = ""
-        if let slice = createSlice(named: "Other", decimal: 0.0, asPercent: true) {
-            newUser.addToSlices(slice)
-        }
         save()
         return newUser
     }
 
-    // MARK: - Slice
-
-    func createSlice(named: String, decimal: Double, asPercent: Bool) -> BudgetSlice? {
-        guard
-            let context = context,
-            let entity = NSEntityDescription.entity(
-                forEntityName: Constants.sliceEntityName,
-                in: context)
-            else { return nil }
-        let newSlice = BudgetSlice(entity: entity, insertInto: context)
-        newSlice.name = named
-        newSlice.decimal = decimal
-        newSlice.isPercent = asPercent
-        save()
-        return newSlice
-    }
-
     // MARK: - Transaction
 
-    func createTransaction(named: String, amount: Double, slice: BudgetSlice?, date: Date) -> BudgetTransaction? {
+    func createTransaction(named: String, amount: Double, date: Date) -> BudgetTransaction? {
         guard
             let context = context,
             let entity = NSEntityDescription.entity(
@@ -104,8 +78,7 @@ final class CoreDataInterface {
         let newTransaction = BudgetTransaction(entity: entity, insertInto: context)
         newTransaction.name = named
         newTransaction.amount = amount
-        newTransaction.date = NSDate(timeIntervalSince1970: date.timeIntervalSince1970)
-        newTransaction.slice = slice
+        newTransaction.date = Date(timeIntervalSince1970: date.timeIntervalSince1970)
         save()
         return newTransaction
     }
