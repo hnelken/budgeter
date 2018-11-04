@@ -16,8 +16,10 @@ final class CoreDataInterface {
 
     private init() {}
     private struct Constants {
-        static let userEntityName = "BudgetUser"
-        static let transactionEntityName = "BudgetTransaction"
+        static let userEntityName = "User"
+        static let commentEntityName = "Comment"
+        static let expenseEntityName = "Expense"
+        static let expenseCategoryEntityName = "ExpenseCategory"
     }
 
     // MARK: - General
@@ -37,13 +39,13 @@ final class CoreDataInterface {
 
     // MARK: - User
 
-    func getExistingUser() -> BudgetUser? {
+    func getExistingUser() -> User? {
         guard let context = context else { return nil }
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: Constants.userEntityName)
         request.returnsObjectsAsFaults = false
         do {
             guard
-                let result = try context.fetch(request) as? [BudgetUser],
+                let result = try context.fetch(request) as? [User],
                 let user = result.first else {
                 return nil
             }
@@ -53,33 +55,66 @@ final class CoreDataInterface {
         }
     }
 
-    func createNewUser() -> BudgetUser? {
-        guard
-            let context = context,
-            let entity = NSEntityDescription.entity(
-                forEntityName: Constants.userEntityName,
-                in: context)
-            else { return nil }
-        let newUser = BudgetUser(entity: entity, insertInto: context)
+    func createNewUser() -> User? {
+        guard let context = context else { return nil }
+        let newUser = User(context: context)
+        newUser.name = "friend"
         newUser.password = ""
         save()
         return newUser
     }
 
-    // MARK: - Transaction
-
-    func createTransaction(named: String, amount: Double, date: Date) -> BudgetTransaction? {
-        guard
-            let context = context,
-            let entity = NSEntityDescription.entity(
-                forEntityName: Constants.transactionEntityName,
-                in: context)
-            else { return nil }
-        let newTransaction = BudgetTransaction(entity: entity, insertInto: context)
-        newTransaction.name = named
-        newTransaction.amount = amount
-        newTransaction.date = Date(timeIntervalSince1970: date.timeIntervalSince1970)
+    func set(password: String?, for user: User) {
+        user.password = password
         save()
-        return newTransaction
+    }
+
+    func set(name: String, for user: User) {
+        user.name = name
+        save()
+    }
+
+    // MARK: - Expense Category
+
+    func createExpenseCategory(name: String) -> ExpenseCategory? {
+        guard let context = context else { return nil }
+        let newCategory = ExpenseCategory(context: context)
+        newCategory.name = name
+        return newCategory
+    }
+
+    // MARK: - Comment
+
+    func createComment(text: String) -> Comment? {
+        guard let context = context else { return nil }
+        let comment = Comment(context: context)
+        comment.text = text
+        return comment
+    }
+
+    // MARK: - Expense
+
+    func createExpense(
+        user: User,
+        name: String,
+        amount: Double,
+        date: Date,
+        category: ExpenseCategory?,
+        comment: Comment?
+    ) -> Expense? {
+        guard let context = context else { return nil }
+        let expense = Expense(context: context)
+        expense.user = user
+        expense.name = name
+        expense.amount = amount
+        expense.date = date
+
+        expense.category = category
+        category?.addToExpenses(expense)
+
+        expense.comment = comment
+
+        save()
+        return expense
     }
 }

@@ -86,7 +86,7 @@
 				D8CEA55B21585EF100036263 /* RoundedButton.swift */,
 				D8847B6C21583738007B77D2 /* Login */,
 				D8847B6D2158373D007B77D2 /* Dashboard */,
-				D8847B6E21583743007B77D2 /* Setup */,
+				D8847B6E21583743007B77D2 /* Expense */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -107,11 +107,11 @@
 			path = Dashboard;
 			sourceTree = "<group>";
 		};
-		D8847B6E21583743007B77D2 /* Setup */ = {
+		D8847B6E21583743007B77D2 /* Expense */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = Setup;
+			path = Expense;
 			sourceTree = "<group>";
 		};
 		D8AB841A2158363D00A1EE58 /* ViewControllers */ = {
@@ -120,7 +120,7 @@
 				D8285F49218F8B5E00016F4A /* Common */,
 				D8AB841C2158368000A1EE58 /* Login */,
 				D8AB841D2158368500A1EE58 /* Dashboard */,
-				D8AB841E2158369600A1EE58 /* Setup */,
+				D8AB841E2158369600A1EE58 /* Expense */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -130,7 +130,7 @@
 			children = (
 				D8FACC36215836CF0011CC98 /* Login */,
 				D8FACC37215836D70011CC98 /* Dashboard */,
-				D8FACC38215836E20011CC98 /* Setup */,
+				D8FACC38215836E20011CC98 /* Expense */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -151,11 +151,11 @@
 			path = Dashboard;
 			sourceTree = "<group>";
 		};
-		D8AB841E2158369600A1EE58 /* Setup */ = {
+		D8AB841E2158369600A1EE58 /* Expense */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = Setup;
+			path = Expense;
 			sourceTree = "<group>";
 		};
 		D8CC1D6A205F480C008A5173 = {
@@ -233,11 +233,11 @@
 			path = Dashboard;
 			sourceTree = "<group>";
 		};
-		D8FACC38215836E20011CC98 /* Setup */ = {
+		D8FACC38215836E20011CC98 /* Expense */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = Setup;
+			path = Expense;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

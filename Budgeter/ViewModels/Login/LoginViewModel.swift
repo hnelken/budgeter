@@ -34,7 +34,7 @@ final class LoginViewModel: BasicTextInputViewModel {
     }
     var buttonAction: (() -> ())?
 
-    private var currentUser: BudgetUser?
+    private var currentUser: User?
     private(set) var isNewUser = false
 
     // MARK: - CoreData
@@ -44,8 +44,8 @@ final class LoginViewModel: BasicTextInputViewModel {
     }
 
     private func set(newPassword: String?) {
-        currentUser?.password = newPassword
-        CoreDataInterface.shared.save()
+        guard let user = currentUser else { return }
+        CoreDataInterface.shared.set(password: newPassword, for: user)
     }
 
     private func checkForExistingUser() {
