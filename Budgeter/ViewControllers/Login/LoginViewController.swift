@@ -18,9 +18,6 @@ final class LoginViewController: BasicTextInputViewController, LoginViewModelDel
     
     init() {
         super.init(viewModel: LoginViewModel())
-        viewModel.buttonAction = { [weak self] in
-            self?.loginViewModel?.authenticate(textFieldContent: self?.inputField.text)
-        }
         loginViewModel?.delegate = self
     }
 
@@ -30,10 +27,20 @@ final class LoginViewController: BasicTextInputViewController, LoginViewModelDel
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupUserFromStorage()
+        setup()
     }
 
     // MARK: - Setup
+
+    private func setup() {
+        setupKeyboard()
+        setupUserFromStorage()
+    }
+
+    private func setupKeyboard() {
+        inputField.isSecureTextEntry = true
+        inputField.keyboardType = .numberPad
+    }
 
     private func setupUserFromStorage() {
         loginViewModel?.setupUserFromStorage()
@@ -42,9 +49,11 @@ final class LoginViewController: BasicTextInputViewController, LoginViewModelDel
     // MARK: - LoginViewModelDelegate
 
     func authenticationSuccessful() {
+        guard let currentUser = loginViewModel?.currentUser else { return }
         DispatchQueue.main.async { [weak self] in
             self?.inputField.text = ""
-            self?.navigationController?.pushViewController(DashboardViewController(), animated: true)
+            let viewController = DashboardViewController(user: currentUser)
+            self?.navigationController?.pushViewController(viewController, animated: true)
         }
     }
 

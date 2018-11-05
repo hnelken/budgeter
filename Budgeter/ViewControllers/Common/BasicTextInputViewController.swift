@@ -11,9 +11,10 @@ import UIKit
 protocol BasicTextInputViewModel: class {
     var headerText: String { get }
     var detailText: String { get }
+    var defaultInputFieldText: String { get }
     var placeHolderText: String { get }
     var buttonText: String { get }
-    var buttonAction: (() -> ())? { get set }
+    var buttonAction: ((String?) -> ())? { get }
 }
 
 class BasicTextInputViewController: UIViewController {
@@ -51,11 +52,16 @@ class BasicTextInputViewController: UIViewController {
 
     // MARK: - Setup
 
-    private func setupFromViewModel() {
+    func updateUI() {
         headerLabel.text = viewModel.headerText
         detailLabel.text = viewModel.detailText
+        inputField.text = viewModel.defaultInputFieldText
         inputField.placeholder = viewModel.placeHolderText
         button.setTitle(viewModel.buttonText, for: .normal)
+    }
+
+    private func setupFromViewModel() {
+        updateUI()
     }
 
     private func registerKeyboardNotifications() {
@@ -79,9 +85,9 @@ class BasicTextInputViewController: UIViewController {
 
     // MARK: - Actions
 
-    @IBAction func enterButtonPressed(_ sender: Any) {
+    @IBAction private func enterButtonPressed(_ sender: Any) {
         inputField.resignFirstResponder()
-        viewModel.buttonAction?()
+        viewModel.buttonAction?(inputField.text)
     }
 
     @objc private func keyboardDidShow(_ sender: Notification) {

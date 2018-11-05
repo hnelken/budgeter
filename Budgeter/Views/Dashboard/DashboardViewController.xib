@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15G19009" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -19,21 +19,59 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WELCOME" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8LG-Hg-JUw">
-                    <rect key="frame" x="141" y="125" width="93" height="25"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c3a-Mp-CPC" customClass="RoundedButton" customModule="Budgeter" customModuleProvider="target">
+                    <rect key="frame" x="315" y="40" width="44" height="44"/>
+                    <color key="backgroundColor" red="0.29411764709999999" green="0.29411764709999999" blue="0.29411764709999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="93" id="rdF-36-YaV"/>
+                        <constraint firstAttribute="height" constant="44" id="1E1-VB-Oxq"/>
+                        <constraint firstAttribute="width" constant="44" id="laE-vW-tQ4"/>
                     </constraints>
-                    <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="18"/>
-                    <nil key="textColor"/>
+                    <state key="normal" image="white-plus">
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="addButtonPressed:" destination="-1" eventType="touchUpInside" id="gZS-1g-GHa"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7yL-lJ-Rid" customClass="RoundedButton" customModule="Budgeter" customModuleProvider="target">
+                    <rect key="frame" x="16" y="40" width="44" height="44"/>
+                    <color key="backgroundColor" red="0.29411764709999999" green="0.29411764709999999" blue="0.29411764709999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="Fsp-zy-xVw"/>
+                        <constraint firstAttribute="width" constant="44" id="tHP-mc-Pnk"/>
+                    </constraints>
+                    <state key="normal" image="white-left-arrow">
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="backButtonPressed:" destination="-1" eventType="touchUpInside" id="tVT-A9-fzu"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dashboard" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VGK-jA-LDD">
+                    <rect key="frame" x="68" y="40" width="239" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="A5b-lF-Rhl"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="24"/>
+                    <color key="textColor" red="0.066666666669999999" green="0.066666666669999999" blue="0.29411764709999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="8LG-Hg-JUw" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="30r-Lz-aF5"/>
-                <constraint firstItem="8LG-Hg-JUw" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="125" id="bgB-8i-K2B"/>
+                <constraint firstItem="7yL-lJ-Rid" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="40" id="1Kz-wR-958"/>
+                <constraint firstItem="VGK-jA-LDD" firstAttribute="leading" secondItem="7yL-lJ-Rid" secondAttribute="trailing" constant="8" id="BHz-P2-V3b"/>
+                <constraint firstAttribute="trailing" secondItem="c3a-Mp-CPC" secondAttribute="trailing" constant="16" id="ID1-hb-JPB"/>
+                <constraint firstItem="c3a-Mp-CPC" firstAttribute="leading" secondItem="VGK-jA-LDD" secondAttribute="trailing" constant="8" id="L4u-ES-ZFq"/>
+                <constraint firstItem="c3a-Mp-CPC" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="40" id="TA9-u5-eCw"/>
+                <constraint firstItem="VGK-jA-LDD" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="40" id="xK5-Qm-oAi"/>
+                <constraint firstItem="7yL-lJ-Rid" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="16" id="yI7-e7-RVj"/>
             </constraints>
+            <point key="canvasLocation" x="33.5" y="53.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="white-left-arrow" width="32" height="32"/>
+        <image name="white-plus" width="32" height="32"/>
+    </resources>
 </document>

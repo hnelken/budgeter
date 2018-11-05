@@ -20,21 +20,34 @@ protocol LoginViewModelDelegate: class {
 final class LoginViewModel: BasicTextInputViewModel {
 
     weak var delegate: LoginViewModelDelegate?
+
     var headerText: String {
         return "Welcome!"
     }
+
     var detailText: String {
         return "Enter your password to continue, or leave it blank to use Touch ID, even if its your first time!"
     }
+
     var buttonText: String {
         return "Enter"
     }
+
+    var defaultInputFieldText: String {
+        return ""
+    }
+
     var placeHolderText: String {
         return "Password"
     }
-    var buttonAction: (() -> ())?
 
-    private var currentUser: User?
+    var buttonAction: ((String?) -> ())? {
+        return { [weak self] inputString in
+            self?.authenticate(textFieldContent: inputString)
+        }
+    }
+
+    private(set) var currentUser: User?
     private(set) var isNewUser = false
 
     // MARK: - CoreData
@@ -64,7 +77,7 @@ final class LoginViewModel: BasicTextInputViewModel {
 
     // MARK: - Authentication
 
-    func authenticate(textFieldContent: String?) {
+    private func authenticate(textFieldContent: String?) {
         if let text = textFieldContent, !text.isEmpty {
             authenticateViaPassword(text)
         } else {
