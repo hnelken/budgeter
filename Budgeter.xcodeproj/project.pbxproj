@@ -10,6 +10,7 @@
 		D8285F4C218F8CB700016F4A /* Budgeter.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D8285F4A218F8CB600016F4A /* Budgeter.xcdatamodeld */; };
 		D8285F4F218FC8AB00016F4A /* NewExpenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8285F4E218FC8AB00016F4A /* NewExpenseViewController.swift */; };
 		D8285F51218FC92000016F4A /* NewExpenseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8285F50218FC92000016F4A /* NewExpenseViewModel.swift */; };
+		D836D69A2198B5FF00D3E839 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D836D6992198B5FF00D3E839 /* AppCoordinator.swift */; };
 		D88B6BE520CCC03100BF1B71 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88B6BE420CCC03100BF1B71 /* LoginViewModel.swift */; };
 		D88B6BE720CCC7BD00BF1B71 /* UIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88B6BE620CCC7BD00BF1B71 /* UIConstants.swift */; };
 		D88B6BF220CCDE7B00BF1B71 /* CoreDataInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88B6BF120CCDE7B00BF1B71 /* CoreDataInterface.swift */; };
@@ -39,6 +40,7 @@
 		D8285F4B218F8CB600016F4A /* Budgeter.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Budgeter.xcdatamodel; sourceTree = "<group>"; };
 		D8285F4E218FC8AB00016F4A /* NewExpenseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewExpenseViewController.swift; sourceTree = "<group>"; };
 		D8285F50218FC92000016F4A /* NewExpenseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewExpenseViewModel.swift; sourceTree = "<group>"; };
+		D836D6992198B5FF00D3E839 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		D88B6BE420CCC03100BF1B71 /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		D88B6BE620CCC7BD00BF1B71 /* UIConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIConstants.swift; sourceTree = "<group>"; };
 		D88B6BF120CCDE7B00BF1B71 /* CoreDataInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataInterface.swift; sourceTree = "<group>"; };
@@ -177,6 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				D8CC1D76205F480C008A5173 /* AppDelegate.swift */,
+				D836D6992198B5FF00D3E839 /* AppCoordinator.swift */,
 				D8847B6B21583724007B77D2 /* Views */,
 				D8AB841B2158365B00A1EE58 /* ViewModels */,
 				D8AB841A2158363D00A1EE58 /* ViewControllers */,
@@ -346,6 +349,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D836D69A2198B5FF00D3E839 /* AppCoordinator.swift in Sources */,
 				D8CC1DA2205F4D8A008A5173 /* BasicTextInputViewController.swift in Sources */,
 				D8285F4C218F8CB700016F4A /* Budgeter.xcdatamodeld in Sources */,
 				D8CC1D77205F480C008A5173 /* AppDelegate.swift in Sources */,

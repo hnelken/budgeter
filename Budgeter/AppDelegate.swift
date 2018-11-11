@@ -14,11 +14,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    private lazy var appFlowCoordinator: AppFlowCoordinator = {
+        let appFlowCoordinator = AppFlowCoordinator()
+        self.appFlowCoordinator = appFlowCoordinator
+        appFlowCoordinator.setup()
+        return appFlowCoordinator
+    }()
+
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        
+
         self.window = UIWindow(frame: UIScreen.main.bounds)
-        let initialViewController = LoginViewController()
-        self.window?.rootViewController = UINavigationController(rootViewController: initialViewController)
+        self.window?.rootViewController = appFlowCoordinator.navigationController
         self.window?.makeKeyAndVisible()
         
         return true

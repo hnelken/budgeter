@@ -8,7 +8,13 @@
 
 import UIKit
 
+protocol LoginDelegate: class {
+    func finishedAuthentication(for currentUser: User)
+}
+
 final class LoginViewController: BasicTextInputViewController, LoginViewModelDelegate {
+
+    weak var delegate: LoginDelegate?
 
     private lazy var loginViewModel: LoginViewModel? = {
         return self.viewModel as? LoginViewModel
@@ -49,11 +55,12 @@ final class LoginViewController: BasicTextInputViewController, LoginViewModelDel
     // MARK: - LoginViewModelDelegate
 
     func authenticationSuccessful() {
-        guard let currentUser = loginViewModel?.currentUser else { return }
         DispatchQueue.main.async { [weak self] in
+            guard let currentUser = self?.loginViewModel?.currentUser else {
+                return
+            }
             self?.inputField.text = ""
-            let viewController = DashboardViewController(user: currentUser)
-            self?.navigationController?.pushViewController(viewController, animated: true)
+            self?.delegate?.finishedAuthentication(for: currentUser)
         }
     }
 
