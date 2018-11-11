@@ -24,7 +24,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cHH-NA-Khe" customClass="RoundedButton" customModule="Budgeter" customModuleProvider="target">
-                    <rect key="frame" x="127" y="430" width="160" height="40"/>
+                    <rect key="frame" x="127" y="385" width="160" height="40"/>
                     <color key="backgroundColor" red="0.29411764709999999" green="0.29411764709999999" blue="0.29411764709999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="CUp-aS-fUk"/>
@@ -39,7 +39,7 @@
                     </connections>
                 </button>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Placeholder" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="6DE-Uq-SyC">
-                    <rect key="frame" x="40" y="338" width="334" height="60"/>
+                    <rect key="frame" x="40" y="293" width="334" height="60"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="60" id="m7M-dz-uff"/>
                     </constraints>
@@ -69,7 +69,7 @@
                 <constraint firstAttribute="trailing" secondItem="Qkq-2d-Hqh" secondAttribute="trailing" constant="40" id="6ES-6f-0a0"/>
                 <constraint firstItem="6DE-Uq-SyC" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="ApM-w1-s92"/>
                 <constraint firstItem="cHH-NA-Khe" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="BGb-li-fTG"/>
-                <constraint firstItem="6DE-Uq-SyC" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" priority="750" id="Dnn-pu-JdZ"/>
+                <constraint firstItem="6DE-Uq-SyC" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" priority="750" constant="-45" id="Dnn-pu-JdZ"/>
                 <constraint firstItem="Qkq-2d-Hqh" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="40" id="N62-Nn-Xr4"/>
                 <constraint firstAttribute="trailing" secondItem="EKE-LU-NtV" secondAttribute="trailing" constant="40" id="Wh6-Ac-vjy"/>
                 <constraint firstAttribute="trailing" secondItem="6DE-Uq-SyC" secondAttribute="trailing" constant="40" id="ayU-u2-cG9"/>

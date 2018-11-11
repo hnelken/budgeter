@@ -20,7 +20,7 @@ private enum NewExpenseEntryState {
     case date
     case category
     case paymentMethod
-    case comments
+    case comment
 }
 
 final class NewExpenseViewModel: BasicTextInputViewModel {
@@ -32,7 +32,7 @@ final class NewExpenseViewModel: BasicTextInputViewModel {
     private var date = ""
     private var category = ""
     private var paymentMethod = ""
-    private var comments: String?
+    private var comment: String?
 
     private var currentUser: User
     private var state: NewExpenseEntryState = .name
@@ -41,7 +41,7 @@ final class NewExpenseViewModel: BasicTextInputViewModel {
         self.currentUser = currentUser
 
         // TODO: Setup data source and UI for options during creation
-
+        
     }
 
     // MARK: - View Properties
@@ -62,7 +62,7 @@ final class NewExpenseViewModel: BasicTextInputViewModel {
             return "Choose a category for the expense"
         case .paymentMethod:
             return "Choose how you paid for the expense"
-        case .comments:
+        case .comment:
             return "Enter any additional comments"
         }
     }
@@ -83,14 +83,14 @@ final class NewExpenseViewModel: BasicTextInputViewModel {
             return "Category"
         case .paymentMethod:
             return "Payment Method"
-        case .comments:
+        case .comment:
             return "Comments"
         }
     }
 
     var buttonText: String {
         switch state {
-        case .comments:
+        case .comment:
             return "Done"
         default:
             return "Next"
@@ -133,9 +133,9 @@ final class NewExpenseViewModel: BasicTextInputViewModel {
             state = .paymentMethod
         case .paymentMethod:
             paymentMethod = inputString
-            state = .comments
-        case .comments:
-            comments = rawTextInput
+            state = .comment
+        case .comment:
+            comment = rawTextInput
             createExpense()
         }
         delegate?.updateUIFromViewModel()
@@ -147,18 +147,13 @@ final class NewExpenseViewModel: BasicTextInputViewModel {
 
         // TODO: Flesh out expense object
 
-        var commentObject: Comment?
-        if let commentText = comments {
-            commentObject = CoreDataInterface.shared.createComment(text: commentText)
-        }
-
         let _ = CoreDataInterface.shared.createExpense(
             user: currentUser,
             name: name,
             amount: Double(amount) ?? 0.0,
             date: Date(),
             category: nil,
-            comment: commentObject
+            comment: comment
         )
 
         delegate?.finishCreatingExpense()

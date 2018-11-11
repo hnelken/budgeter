@@ -17,7 +17,6 @@ final class CoreDataInterface {
     private init() {}
     private struct Constants {
         static let userEntityName = "User"
-        static let commentEntityName = "Comment"
         static let expenseEntityName = "Expense"
         static let expenseCategoryEntityName = "ExpenseCategory"
     }
@@ -83,15 +82,6 @@ final class CoreDataInterface {
         return newCategory
     }
 
-    // MARK: - Comment
-
-    func createComment(text: String) -> Comment? {
-        guard let context = context else { return nil }
-        let comment = Comment(context: context)
-        comment.text = text
-        return comment
-    }
-
     // MARK: - Expense
 
     func createExpense(
@@ -100,7 +90,7 @@ final class CoreDataInterface {
         amount: Double,
         date: Date,
         category: ExpenseCategory?,
-        comment: Comment?
+        comment: String?
     ) -> Expense? {
         guard let context = context else { return nil }
         let expense = Expense(context: context)
@@ -108,11 +98,10 @@ final class CoreDataInterface {
         expense.name = name
         expense.amount = amount
         expense.date = date
+        expense.comment = comment
 
         expense.category = category
         category?.addToExpenses(expense)
-
-        expense.comment = comment
 
         save()
         return expense
