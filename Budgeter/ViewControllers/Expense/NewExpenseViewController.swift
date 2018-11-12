@@ -8,14 +8,16 @@
 
 import UIKit
 
+class NewExpenseViewController: BasicTextInputViewController, NewExpenseViewModelDelegate, NewExpenseInfoStep {
 
-class NewExpenseViewController: BasicTextInputViewController, NewExpenseViewModelDelegate {
+    let submitAction: ((Any) -> ())?
 
     private lazy var newExpenseViewModel: NewExpenseViewModel? = {
         return self.viewModel as? NewExpenseViewModel
     }()
 
-    init(viewModel: NewExpenseViewModel) {
+    init(viewModel: NewExpenseViewModel, submitAction: @escaping ((Any) -> ())) {
+        self.submitAction = submitAction
         super.init(viewModel: viewModel)
         newExpenseViewModel?.delegate = self
     }
@@ -49,6 +51,7 @@ class NewExpenseViewController: BasicTextInputViewController, NewExpenseViewMode
     }
 
     func finishCreatingExpense() {
-        navigationController?.popViewController(animated: true)
+//        navigationController?.popViewController(animated: true)
+        submitAction?(self)
     }
 }

@@ -8,7 +8,15 @@
 
 import UIKit
 
+protocol DashboardDelegate: class {
+    func logOut()
+    func createNewExpense()
+}
+
 final class DashboardViewController: UIViewController {
+
+    weak var delegate: DashboardDelegate?
+
     private var user: User
 
     init(user: User) {
@@ -21,12 +29,14 @@ final class DashboardViewController: UIViewController {
     }
 
     @IBAction func addButtonPressed(_ sender: Any) {
-        let viewModel = NewExpenseViewModel(currentUser: user)
-        let viewController = NewExpenseViewController(viewModel: viewModel)
-        navigationController?.pushViewController(viewController, animated: true)
+//        let viewModel = NewExpenseViewModel(currentUser: user)
+//        let viewController = NewExpenseViewController(viewModel: viewModel)
+//        navigationController?.pushViewController(viewController, animated: true)
+        delegate?.createNewExpense()
     }
 
     @IBAction func backButtonPressed(_ sender: Any) {
-        navigationController?.popViewController(animated: true)
+        delegate?.logOut()
+//        navigationController?.popViewController(animated: true)
     }
 }

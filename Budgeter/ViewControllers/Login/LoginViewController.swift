@@ -9,7 +9,7 @@
 import UIKit
 
 protocol LoginDelegate: class {
-    func finishedAuthentication(for currentUser: User)
+    func completeAuthentication(for currentUser: User)
 }
 
 final class LoginViewController: BasicTextInputViewController, LoginViewModelDelegate {
@@ -60,7 +60,7 @@ final class LoginViewController: BasicTextInputViewController, LoginViewModelDel
                 return
             }
             self?.inputField.text = ""
-            self?.delegate?.finishedAuthentication(for: currentUser)
+            self?.delegate?.completeAuthentication(for: currentUser)
         }
     }
 
