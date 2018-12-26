@@ -38,8 +38,7 @@ final class AppFlowCoordinator {
 
 extension AppFlowCoordinator {
     private func newLoginViewController() -> LoginViewController {
-        let viewController = LoginViewController()
-        viewController.delegate = self
+        let viewController = LoginViewController(flowDelegate: self)
         return viewController
     }
 
@@ -52,20 +51,20 @@ extension AppFlowCoordinator {
     private func newExpenseFlowCoordinator(for user: User) -> NewExpenseFlowCoordinator {
         let newExpenseFlow = NewExpenseFlowCoordinator(currentUser: user)
         newExpenseFlow.setup()
-        newExpenseFlow.delegate = self
+        newExpenseFlow.flowDelegate = self
         return newExpenseFlow
     }
 }
 
 // MARK: - Login Delegate
 
-extension AppFlowCoordinator: LoginDelegate {
+extension AppFlowCoordinator: LoginFlowDelegate {
     func completeAuthentication(for currentUser: User) {
         showDashboard(for: currentUser)
     }
 }
 
-extension AppFlowCoordinator: DashboardDelegate {
+extension AppFlowCoordinator: DashboardFlowDelegate {
     func logOut() {
         navigationController.popViewController(animated: true)
     }
@@ -75,7 +74,7 @@ extension AppFlowCoordinator: DashboardDelegate {
     }
 }
 
-extension AppFlowCoordinator: NewExpenseDelegate {
+extension AppFlowCoordinator: NewExpenseFlowDelegate {
     func completeExpenseCreation() {
         navigationController.dismiss(animated: true)
         newExpenseFlow = nil

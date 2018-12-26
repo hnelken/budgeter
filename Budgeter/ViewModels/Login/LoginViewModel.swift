@@ -11,14 +11,19 @@ import UIKit
 import LocalAuthentication
 import CoreData
 
+protocol LoginFlowDelegate: class {
+    func completeAuthentication(for currentUser: User)
+}
+
 protocol LoginViewModelDelegate: class {
-    func authenticationSuccessful()
-    func authenticationFailed()
+    func configureUIForSuccess()
+    func configureUIForFailure()
     func touchIDNotSupported()
 }
 
 final class LoginViewModel: BasicTextInputViewModel {
 
+    weak var flowDelegate: LoginFlowDelegate?
     weak var delegate: LoginViewModelDelegate?
 
     var headerText: String {
@@ -120,11 +125,13 @@ final class LoginViewModel: BasicTextInputViewModel {
 
     private func authenticationSuccessful() {
         isNewUser = false
-        delegate?.authenticationSuccessful()
+        delegate?.configureUIForSuccess()
+        guard let currentUser = currentUser else { return }
+        flowDelegate?.completeAuthentication(for: currentUser)
     }
 
     private func authenticationFailed() {
         isNewUser = false
-        delegate?.authenticationFailed()
+        delegate?.configureUIForFailure()
     }
 }

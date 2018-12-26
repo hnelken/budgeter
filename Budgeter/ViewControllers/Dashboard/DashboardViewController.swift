@@ -8,14 +8,14 @@
 
 import UIKit
 
-protocol DashboardDelegate: class {
+protocol DashboardFlowDelegate: class {
     func logOut()
     func createNewExpense()
 }
 
 final class DashboardViewController: UIViewController {
 
-    weak var delegate: DashboardDelegate?
+    weak var delegate: DashboardFlowDelegate?
 
     private var user: User
 

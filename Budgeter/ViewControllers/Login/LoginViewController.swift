@@ -8,13 +8,7 @@
 
 import UIKit
 
-protocol LoginDelegate: class {
-    func completeAuthentication(for currentUser: User)
-}
-
 final class LoginViewController: BasicTextInputViewController, LoginViewModelDelegate {
-
-    weak var delegate: LoginDelegate?
 
     private lazy var loginViewModel: LoginViewModel? = {
         return self.viewModel as? LoginViewModel
@@ -22,8 +16,9 @@ final class LoginViewController: BasicTextInputViewController, LoginViewModelDel
 
     // MARK: - Life-Cycle
     
-    init() {
+    init(flowDelegate: LoginFlowDelegate) {
         super.init(viewModel: LoginViewModel())
+        loginViewModel?.flowDelegate = flowDelegate
         loginViewModel?.delegate = self
     }
 
@@ -54,17 +49,13 @@ final class LoginViewController: BasicTextInputViewController, LoginViewModelDel
 
     // MARK: - LoginViewModelDelegate
 
-    func authenticationSuccessful() {
+    func configureUIForSuccess() {
         DispatchQueue.main.async { [weak self] in
-            guard let currentUser = self?.loginViewModel?.currentUser else {
-                return
-            }
             self?.inputField.text = ""
-            self?.delegate?.completeAuthentication(for: currentUser)
         }
     }
 
-    func authenticationFailed() {
+    func configureUIForFailure() {
         presentAlert(withTitle: "Authentication failed",
                      andMessage: "Sorry!")
     }

@@ -10,6 +10,7 @@
 		D8285F4C218F8CB700016F4A /* Budgeter.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D8285F4A218F8CB600016F4A /* Budgeter.xcdatamodeld */; };
 		D8285F4F218FC8AB00016F4A /* NewExpenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8285F4E218FC8AB00016F4A /* NewExpenseViewController.swift */; };
 		D8285F51218FC92000016F4A /* NewExpenseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8285F50218FC92000016F4A /* NewExpenseViewModel.swift */; };
+		D83103FC21C49B6000DD3376 /* NewExpenseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D83103FB21C49B6000DD3376 /* NewExpenseViewController.xib */; };
 		D836D69A2198B5FF00D3E839 /* AppFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D836D6992198B5FF00D3E839 /* AppFlowCoordinator.swift */; };
 		D836D69E2198CD0F00D3E839 /* NewExpenseFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D836D69D2198CD0F00D3E839 /* NewExpenseFlowCoordinator.swift */; };
 		D88B6BE520CCC03100BF1B71 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88B6BE420CCC03100BF1B71 /* LoginViewModel.swift */; };
@@ -41,6 +42,7 @@
 		D8285F4B218F8CB600016F4A /* Budgeter.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Budgeter.xcdatamodel; sourceTree = "<group>"; };
 		D8285F4E218FC8AB00016F4A /* NewExpenseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewExpenseViewController.swift; sourceTree = "<group>"; };
 		D8285F50218FC92000016F4A /* NewExpenseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewExpenseViewModel.swift; sourceTree = "<group>"; };
+		D83103FB21C49B6000DD3376 /* NewExpenseViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewExpenseViewController.xib; sourceTree = "<group>"; };
 		D836D6992198B5FF00D3E839 /* AppFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFlowCoordinator.swift; sourceTree = "<group>"; };
 		D836D69D2198CD0F00D3E839 /* NewExpenseFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewExpenseFlowCoordinator.swift; sourceTree = "<group>"; };
 		D88B6BE420CCC03100BF1B71 /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
@@ -97,6 +99,14 @@
 			path = Common;
 			sourceTree = "<group>";
 		};
+		D83103FA21C49AE600DD3376 /* Expense */ = {
+			isa = PBXGroup;
+			children = (
+				D83103FB21C49B6000DD3376 /* NewExpenseViewController.xib */,
+			);
+			path = Expense;
+			sourceTree = "<group>";
+		};
 		D836D69B2198CCCE00D3E839 /* Coordinators */ = {
 			isa = PBXGroup;
 			children = (
@@ -111,6 +121,7 @@
 			children = (
 				D8285F4D218FC79100016F4A /* Common */,
 				D8847B6D2158373D007B77D2 /* Dashboard */,
+				D83103FA21C49AE600DD3376 /* Expense */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -342,6 +353,7 @@
 				D8CC1D84205F480C008A5173 /* LaunchScreen.storyboard in Resources */,
 				D8CC1D81205F480C008A5173 /* Assets.xcassets in Resources */,
 				D8CC1DA3205F4D8A008A5173 /* BasicTextInputViewController.xib in Resources */,
+				D83103FC21C49B6000DD3376 /* NewExpenseViewController.xib in Resources */,
 				D8CC1DA8205F62C5008A5173 /* DashboardViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

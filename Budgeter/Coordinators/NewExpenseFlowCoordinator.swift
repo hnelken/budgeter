@@ -18,7 +18,7 @@ private enum ExpenseEntryState {
     case comment
 }
 
-protocol NewExpenseDelegate: class {
+protocol NewExpenseFlowDelegate: class {
     func completeExpenseCreation()
 }
 
@@ -28,7 +28,7 @@ protocol NewExpenseInfoStep {
 
 final class NewExpenseFlowCoordinator {
 
-    weak var delegate: NewExpenseDelegate?
+    weak var flowDelegate: NewExpenseFlowDelegate?
 
     let navigationController = UINavigationController()
     private let currentUser: User
@@ -67,7 +67,7 @@ extension NewExpenseFlowCoordinator {
         let textEntryViewModel = NewExpenseViewModel(currentUser: currentUser)
         let textEntryViewController = NewExpenseViewController(viewModel: textEntryViewModel) { [weak self] result in
             // TODO: Handle return of data from one step here
-            self?.delegate?.completeExpenseCreation()
+            self?.flowDelegate?.completeExpenseCreation()
         }
         return textEntryViewController
     }

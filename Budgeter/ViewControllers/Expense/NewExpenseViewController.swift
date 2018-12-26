@@ -10,7 +10,7 @@ import UIKit
 
 class NewExpenseViewController: BasicTextInputViewController, NewExpenseViewModelDelegate, NewExpenseInfoStep {
 
-    let submitAction: ((Any) -> ())?
+    var submitAction: ((Any) -> ())?
 
     private lazy var newExpenseViewModel: NewExpenseViewModel? = {
         return self.viewModel as? NewExpenseViewModel
