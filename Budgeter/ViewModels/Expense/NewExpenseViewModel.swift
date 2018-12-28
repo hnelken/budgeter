@@ -34,11 +34,9 @@ final class NewExpenseViewModel: BasicTextInputViewModel {
     private var paymentMethod = ""
     private var comment: String?
 
-    private var currentUser: User
     private var state: NewExpenseEntryState = .name
 
-    init(currentUser: User) {
-        self.currentUser = currentUser
+    init() {
 
         // TODO: Setup data source and UI for options during creation
         
@@ -146,7 +144,7 @@ final class NewExpenseViewModel: BasicTextInputViewModel {
     private func createExpense() {
 
         // TODO: Flesh out expense object
-
+        guard let currentUser = currentUser else { return }
         let _ = CoreDataInterface.shared.createExpense(
             user: currentUser,
             name: name,

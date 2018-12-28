@@ -16,9 +16,8 @@ final class LoginViewController: BasicTextInputViewController, LoginViewModelDel
 
     // MARK: - Life-Cycle
     
-    init(flowDelegate: LoginFlowDelegate) {
-        super.init(viewModel: LoginViewModel())
-        loginViewModel?.flowDelegate = flowDelegate
+    init(viewModel: LoginViewModel) {
+        super.init(viewModel: viewModel)
         loginViewModel?.delegate = self
     }
 

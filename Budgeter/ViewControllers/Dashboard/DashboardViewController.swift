@@ -8,35 +8,61 @@
 
 import UIKit
 
-protocol DashboardFlowDelegate: class {
-    func logOut()
-    func createNewExpense()
-}
 
-final class DashboardViewController: UIViewController {
+final class DashboardViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    weak var delegate: DashboardFlowDelegate?
+    @IBOutlet weak var expenseTableView: UITableView!
 
-    private var user: User
+    private let viewModel: DashboardViewModel
 
-    init(user: User) {
-        self.user = user
-        super.init(nibName: "DashboardViewController", bundle: Bundle(for: DashboardViewController.self))
+    init(viewModel: DashboardViewModel) {
+        self.viewModel = viewModel
+        super.init(
+            nibName: "DashboardViewController",
+            bundle: Bundle(for: DashboardViewController.self)
+        )
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setup()
+    }
+
+    // MARK: - Setup
+
+    private func setup() {
+        let cellNib = UINib(nibName: DashboardExpenseCell.identifier, bundle: nil)
+        expenseTableView.register(cellNib, forCellReuseIdentifier: DashboardExpenseCell.identifier)
+    }
+
+    // MARK: - Actions
+
     @IBAction func addButtonPressed(_ sender: Any) {
-//        let viewModel = NewExpenseViewModel(currentUser: user)
-//        let viewController = NewExpenseViewController(viewModel: viewModel)
-//        navigationController?.pushViewController(viewController, animated: true)
-        delegate?.createNewExpense()
+        viewModel.addButtonPressed()
     }
 
     @IBAction func backButtonPressed(_ sender: Any) {
-        delegate?.logOut()
-//        navigationController?.popViewController(animated: true)
+        viewModel.backButtonPressed()
+    }
+
+    // MARK: - UITableViewDataSource
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return viewModel.numberOfRows
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: DashboardExpenseCell.identifier, for: indexPath)
+        if let expenseCell = cell as? DashboardExpenseCell {
+            let text = "\(indexPath.row)"
+            expenseCell.nameLabel.text = text
+            return expenseCell
+        } else {
+            return cell
+        }
     }
 }

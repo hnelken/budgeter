@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DashboardViewController" customModule="Budgeter" customModuleProvider="target">
             <connections>
+                <outlet property="expenseTableView" destination="TjX-zw-sqe" id="v5M-Vi-myf"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -56,6 +57,14 @@
                     <color key="textColor" red="0.066666666669999999" green="0.066666666669999999" blue="0.29411764709999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="TjX-zw-sqe">
+                    <rect key="frame" x="16" y="128" width="343" height="519"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="mFA-xE-rY0"/>
+                        <outlet property="delegate" destination="-1" id="fMD-8X-AuZ"/>
+                    </connections>
+                </tableView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
@@ -64,10 +73,14 @@
                 <constraint firstAttribute="trailing" secondItem="c3a-Mp-CPC" secondAttribute="trailing" constant="16" id="ID1-hb-JPB"/>
                 <constraint firstItem="c3a-Mp-CPC" firstAttribute="leading" secondItem="VGK-jA-LDD" secondAttribute="trailing" constant="8" id="L4u-ES-ZFq"/>
                 <constraint firstItem="c3a-Mp-CPC" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="60" id="TA9-u5-eCw"/>
+                <constraint firstAttribute="bottom" secondItem="TjX-zw-sqe" secondAttribute="bottom" constant="20" id="W39-y4-usM"/>
+                <constraint firstAttribute="trailing" secondItem="TjX-zw-sqe" secondAttribute="trailing" constant="16" id="pGM-iN-ajN"/>
                 <constraint firstItem="VGK-jA-LDD" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="60" id="xK5-Qm-oAi"/>
+                <constraint firstItem="TjX-zw-sqe" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="16" id="y52-K0-ZL1"/>
                 <constraint firstItem="7yL-lJ-Rid" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="16" id="yI7-e7-RVj"/>
+                <constraint firstItem="TjX-zw-sqe" firstAttribute="top" secondItem="VGK-jA-LDD" secondAttribute="bottom" constant="24" id="yJF-VG-Z0S"/>
             </constraints>
-            <point key="canvasLocation" x="33.5" y="53.5"/>
+            <point key="canvasLocation" x="32.799999999999997" y="52.623688155922046"/>
         </view>
     </objects>
     <resources>

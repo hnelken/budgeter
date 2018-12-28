@@ -31,13 +31,8 @@ final class NewExpenseFlowCoordinator {
     weak var flowDelegate: NewExpenseFlowDelegate?
 
     let navigationController = UINavigationController()
-    private let currentUser: User
 
     private var state: ExpenseEntryState = .name
-
-    init(currentUser: User) {
-        self.currentUser = currentUser
-    }
 
     func setup() {
         let nameEntryViewController = newTextEntryViewController()
@@ -64,7 +59,7 @@ final class NewExpenseFlowCoordinator {
 
 extension NewExpenseFlowCoordinator {
     private func newTextEntryViewController() -> NewExpenseViewController {
-        let textEntryViewModel = NewExpenseViewModel(currentUser: currentUser)
+        let textEntryViewModel = NewExpenseViewModel()
         let textEntryViewController = NewExpenseViewController(viewModel: textEntryViewModel) { [weak self] result in
             // TODO: Handle return of data from one step here
             self?.flowDelegate?.completeExpenseCreation()

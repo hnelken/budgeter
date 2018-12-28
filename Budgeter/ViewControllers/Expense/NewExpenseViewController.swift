@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NewExpenseViewController: BasicTextInputViewController, NewExpenseViewModelDelegate, NewExpenseInfoStep {
+final class NewExpenseViewController: BasicTextInputViewController, NewExpenseViewModelDelegate, NewExpenseInfoStep {
 
     var submitAction: ((Any) -> ())?
 

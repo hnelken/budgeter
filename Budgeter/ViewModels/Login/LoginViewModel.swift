@@ -12,7 +12,7 @@ import LocalAuthentication
 import CoreData
 
 protocol LoginFlowDelegate: class {
-    func completeAuthentication(for currentUser: User)
+    func completeAuthentication(for user: User)
 }
 
 protocol LoginViewModelDelegate: class {

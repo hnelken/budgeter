@@ -1,5 +1,5 @@
 //
-//  AppCoordinator.swift
+//  AppFlowCoordinator.swift
 //  Budgeter
 //
 //  Created by Harry Nelken on 11/11/18.
@@ -9,26 +9,31 @@
 import Foundation
 import UIKit
 
+var currentUser: User? {
+    return AppFlowCoordinator.shared.currentSessionUser
+}
+
 final class AppFlowCoordinator {
 
+    static let shared = AppFlowCoordinator()
+    private init() { setup() }
+    
     let navigationController = UINavigationController()
     private var newExpenseFlow: NewExpenseFlowCoordinator?
-    private var currentUser: User?
+    private(set) var currentSessionUser: User?
 
-    func setup() {
+    private func setup() {
         let loginViewController = newLoginViewController()
         navigationController.pushViewController(loginViewController, animated: false)
     }
 
-    private func showDashboard(for currentUser: User) {
-        self.currentUser = currentUser
-        let dashboardViewController = newDashboardViewController(for: currentUser)
+    private func showDashboard() {
+        let dashboardViewController = newDashboardViewController()
         navigationController.pushViewController(dashboardViewController, animated: true)
     }
 
     private func showNewExpenseFlow() {
-        guard let currentUser = currentUser else { return }
-        let newExpenseFlow = newExpenseFlowCoordinator(for: currentUser)
+        let newExpenseFlow = newExpenseFlowCoordinator()
         navigationController.present(newExpenseFlow.navigationController, animated: true)
         self.newExpenseFlow = newExpenseFlow
     }
@@ -38,20 +43,23 @@ final class AppFlowCoordinator {
 
 extension AppFlowCoordinator {
     private func newLoginViewController() -> LoginViewController {
-        let viewController = LoginViewController(flowDelegate: self)
+        let viewModel = LoginViewModel()
+        viewModel.flowDelegate = self
+        let viewController = LoginViewController(viewModel: viewModel)
         return viewController
     }
 
-    private func newDashboardViewController(for user: User) -> DashboardViewController {
-        let viewController = DashboardViewController(user: user)
-        viewController.delegate = self
+    private func newDashboardViewController() -> DashboardViewController {
+        let viewModel = DashboardViewModel()
+        viewModel.flowDelegate = self
+        let viewController = DashboardViewController(viewModel: viewModel)
         return viewController
     }
 
-    private func newExpenseFlowCoordinator(for user: User) -> NewExpenseFlowCoordinator {
-        let newExpenseFlow = NewExpenseFlowCoordinator(currentUser: user)
-        newExpenseFlow.setup()
+    private func newExpenseFlowCoordinator() -> NewExpenseFlowCoordinator {
+        let newExpenseFlow = NewExpenseFlowCoordinator()
         newExpenseFlow.flowDelegate = self
+        newExpenseFlow.setup()
         return newExpenseFlow
     }
 }
@@ -59,13 +67,15 @@ extension AppFlowCoordinator {
 // MARK: - Login Delegate
 
 extension AppFlowCoordinator: LoginFlowDelegate {
-    func completeAuthentication(for currentUser: User) {
-        showDashboard(for: currentUser)
+    func completeAuthentication(for user: User) {
+        currentSessionUser = user
+        showDashboard()
     }
 }
 
 extension AppFlowCoordinator: DashboardFlowDelegate {
     func logOut() {
+        currentSessionUser = nil
         navigationController.popViewController(animated: true)
     }
 

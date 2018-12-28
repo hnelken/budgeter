@@ -107,3 +107,9 @@ final class CoreDataInterface {
         return expense
     }
 }
+
+extension User {
+    var expenseArray: [Expense] {
+        return expenses?.array as! [Expense]
+    }
+}
