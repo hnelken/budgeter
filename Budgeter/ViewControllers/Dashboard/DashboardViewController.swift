@@ -32,11 +32,23 @@ final class DashboardViewController: UIViewController, UITableViewDelegate, UITa
         setup()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        viewModel.reloadData()
+        print(viewModel.numberOfRows)
+        expenseTableView.reloadSections([0], with: .automatic)
+    }
+
     // MARK: - Setup
 
     private func setup() {
         let cellNib = UINib(nibName: DashboardExpenseCell.identifier, bundle: nil)
         expenseTableView.register(cellNib, forCellReuseIdentifier: DashboardExpenseCell.identifier)
+        expenseTableView.tableFooterView = UIView()
     }
 
     // MARK: - Actions
@@ -58,8 +70,7 @@ final class DashboardViewController: UIViewController, UITableViewDelegate, UITa
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: DashboardExpenseCell.identifier, for: indexPath)
         if let expenseCell = cell as? DashboardExpenseCell {
-            let text = "\(indexPath.row)"
-            expenseCell.nameLabel.text = text
+            expenseCell.configure(for: viewModel.cellViewModel(for: indexPath))
             return expenseCell
         } else {
             return cell

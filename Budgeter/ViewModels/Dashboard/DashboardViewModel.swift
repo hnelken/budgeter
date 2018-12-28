@@ -26,7 +26,15 @@ final class DashboardViewModel {
     // MARK: - Data Source
 
     var numberOfRows: Int {
-        return 10//expenses.count
+        return expenses.count
+    }
+
+    func reloadData() {
+        expenses = currentUser?.expenseArray ?? []
+    }
+
+    func cellViewModel(for indexPath: IndexPath) -> DashboardExpenseCellViewModel {
+        return DashboardExpenseCellViewModel(expense: expenses[indexPath.row])
     }
 
     // MARK: - Actions

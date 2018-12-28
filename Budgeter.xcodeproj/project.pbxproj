@@ -29,6 +29,7 @@
 		D8DEA79F21D5B8D80036B13A /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8DEA79E21D5B8D80036B13A /* DashboardViewModel.swift */; };
 		D8DEA7A621D5CF8B0036B13A /* DashboardExpenseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8DEA7A421D5CF8B0036B13A /* DashboardExpenseCell.swift */; };
 		D8DEA7A721D5CF8B0036B13A /* DashboardExpenseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8DEA7A521D5CF8B0036B13A /* DashboardExpenseCell.xib */; };
+		D8DEA7A921D6AB1B0036B13A /* DashboardExpenseCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8DEA7A821D6AB1B0036B13A /* DashboardExpenseCellViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,7 @@
 		D8DEA79E21D5B8D80036B13A /* DashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
 		D8DEA7A421D5CF8B0036B13A /* DashboardExpenseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardExpenseCell.swift; sourceTree = "<group>"; };
 		D8DEA7A521D5CF8B0036B13A /* DashboardExpenseCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DashboardExpenseCell.xib; sourceTree = "<group>"; };
+		D8DEA7A821D6AB1B0036B13A /* DashboardExpenseCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardExpenseCellViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -260,6 +262,7 @@
 			isa = PBXGroup;
 			children = (
 				D8DEA79E21D5B8D80036B13A /* DashboardViewModel.swift */,
+				D8DEA7A821D6AB1B0036B13A /* DashboardExpenseCellViewModel.swift */,
 			);
 			path = Dashboard;
 			sourceTree = "<group>";
@@ -392,6 +395,7 @@
 				D8CC1DA7205F62C5008A5173 /* DashboardViewController.swift in Sources */,
 				D8D070C2215B32C2006FE6A0 /* LoginViewController.swift in Sources */,
 				D8285F4F218FC8AB00016F4A /* NewExpenseViewController.swift in Sources */,
+				D8DEA7A921D6AB1B0036B13A /* DashboardExpenseCellViewModel.swift in Sources */,
 				D8DEA7A621D5CF8B0036B13A /* DashboardExpenseCell.swift in Sources */,
 				D8285F51218FC92000016F4A /* NewExpenseViewModel.swift in Sources */,
 				D88B6BE720CCC7BD00BF1B71 /* UIConstants.swift in Sources */,
