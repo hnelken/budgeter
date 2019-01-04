@@ -102,7 +102,6 @@
 			isa = PBXGroup;
 			children = (
 				D8CEA55B21585EF100036263 /* RoundedButton.swift */,
-				D8CC1DA1205F4D8A008A5173 /* BasicTextInputViewController.xib */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -127,9 +126,9 @@
 		D8847B6B21583724007B77D2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				D8CFCA0021DF287D001592A9 /* Nibs */,
 				D8285F4D218FC79100016F4A /* Common */,
 				D8847B6D2158373D007B77D2 /* Dashboard */,
-				D83103FA21C49AE600DD3376 /* Expense */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -137,8 +136,7 @@
 		D8847B6D2158373D007B77D2 /* Dashboard */ = {
 			isa = PBXGroup;
 			children = (
-				D8CC1DA6205F62C5008A5173 /* DashboardViewController.xib */,
-				D8DEA7A521D5CF8B0036B13A /* DashboardExpenseCell.xib */,
+				D8DEA7A421D5CF8B0036B13A /* DashboardExpenseCell.swift */,
 			);
 			path = Dashboard;
 			sourceTree = "<group>";
@@ -176,7 +174,6 @@
 			isa = PBXGroup;
 			children = (
 				D8CC1DA5205F62C5008A5173 /* DashboardViewController.swift */,
-				D8DEA7A421D5CF8B0036B13A /* DashboardExpenseCell.swift */,
 			);
 			path = Dashboard;
 			sourceTree = "<group>";
@@ -248,6 +245,25 @@
 				D8285F4A218F8CB600016F4A /* Budgeter.xcdatamodeld */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		D8CFCA0021DF287D001592A9 /* Nibs */ = {
+			isa = PBXGroup;
+			children = (
+				D8CC1DA1205F4D8A008A5173 /* BasicTextInputViewController.xib */,
+				D8CFCA0121DF2917001592A9 /* Dashboard */,
+				D83103FA21C49AE600DD3376 /* Expense */,
+			);
+			path = Nibs;
+			sourceTree = "<group>";
+		};
+		D8CFCA0121DF2917001592A9 /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				D8CC1DA6205F62C5008A5173 /* DashboardViewController.xib */,
+				D8DEA7A521D5CF8B0036B13A /* DashboardExpenseCell.xib */,
+			);
+			path = Dashboard;
 			sourceTree = "<group>";
 		};
 		D8FACC36215836CF0011CC98 /* Login */ = {
