@@ -9,9 +9,9 @@
 import UIKit
 
 
-final class DashboardViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+final class DashboardViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
 
-    @IBOutlet weak var expenseTableView: UITableView!
+    @IBOutlet weak var expenseCollectionView: UICollectionView!
 
     private let viewModel: DashboardViewModel
 
@@ -34,21 +34,16 @@ final class DashboardViewController: UIViewController, UITableViewDelegate, UITa
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-    }
-
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
         viewModel.reloadData()
         print(viewModel.numberOfRows)
-        expenseTableView.reloadSections([0], with: .automatic)
+        expenseCollectionView.reloadData()
     }
 
     // MARK: - Setup
 
     private func setup() {
-        let cellNib = UINib(nibName: DashboardExpenseCell.identifier, bundle: nil)
-        expenseTableView.register(cellNib, forCellReuseIdentifier: DashboardExpenseCell.identifier)
-        expenseTableView.tableFooterView = UIView()
+        let collectionCellNib = UINib(nibName: DashboardExpenseCollectionCell.identifier, bundle: nil)
+        expenseCollectionView.register(collectionCellNib, forCellWithReuseIdentifier: DashboardExpenseCollectionCell.identifier)
     }
 
     // MARK: - Actions
@@ -61,19 +56,23 @@ final class DashboardViewController: UIViewController, UITableViewDelegate, UITa
         viewModel.backButtonPressed()
     }
 
-    // MARK: - UITableViewDataSource
+    // MARK: - UICollectionViewDataSource
 
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewModel.numberOfRows
     }
 
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: DashboardExpenseCell.identifier, for: indexPath)
-        if let expenseCell = cell as? DashboardExpenseCell {
-            expenseCell.configure(for: viewModel.cellViewModel(for: indexPath))
-            return expenseCell
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DashboardExpenseCollectionCell.identifier, for: indexPath)
+
+        guard let expenseCell = cell as? DashboardExpenseCollectionCell else { return cell }
+
+        if indexPath.row % 2 == 0 {
+            expenseCell.backgroundColor = UIColor.gray
         } else {
-            return cell
+            expenseCell.backgroundColor = UIColor.lightGray
         }
+        expenseCell.configure(for: viewModel.cellViewModel(for: indexPath))
+        return expenseCell
     }
 }

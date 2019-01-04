@@ -25,10 +25,11 @@
 		D8CC1DA7205F62C5008A5173 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CC1DA5205F62C5008A5173 /* DashboardViewController.swift */; };
 		D8CC1DA8205F62C5008A5173 /* DashboardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8CC1DA6205F62C5008A5173 /* DashboardViewController.xib */; };
 		D8CEA55C21585EF100036263 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CEA55B21585EF100036263 /* RoundedButton.swift */; };
+		D8CFCA0421DF2969001592A9 /* DashboardExpenseCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CFCA0221DF2969001592A9 /* DashboardExpenseCollectionCell.swift */; };
+		D8CFCA0521DF2969001592A9 /* DashboardExpenseCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8CFCA0321DF2969001592A9 /* DashboardExpenseCollectionCell.xib */; };
+		D8CFCA0921DF2CD3001592A9 /* UltravisualLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CFCA0821DF2CD3001592A9 /* UltravisualLayout.swift */; };
 		D8D070C2215B32C2006FE6A0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D070C1215B32C2006FE6A0 /* LoginViewController.swift */; };
 		D8DEA79F21D5B8D80036B13A /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8DEA79E21D5B8D80036B13A /* DashboardViewModel.swift */; };
-		D8DEA7A621D5CF8B0036B13A /* DashboardExpenseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8DEA7A421D5CF8B0036B13A /* DashboardExpenseCell.swift */; };
-		D8DEA7A721D5CF8B0036B13A /* DashboardExpenseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8DEA7A521D5CF8B0036B13A /* DashboardExpenseCell.xib */; };
 		D8DEA7A921D6AB1B0036B13A /* DashboardExpenseCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8DEA7A821D6AB1B0036B13A /* DashboardExpenseCellViewModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -65,10 +66,11 @@
 		D8CC1DA5205F62C5008A5173 /* DashboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		D8CC1DA6205F62C5008A5173 /* DashboardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DashboardViewController.xib; sourceTree = "<group>"; };
 		D8CEA55B21585EF100036263 /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RoundedButton.swift; path = Budgeter/Views/Common/RoundedButton.swift; sourceTree = SOURCE_ROOT; };
+		D8CFCA0221DF2969001592A9 /* DashboardExpenseCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardExpenseCollectionCell.swift; sourceTree = "<group>"; };
+		D8CFCA0321DF2969001592A9 /* DashboardExpenseCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DashboardExpenseCollectionCell.xib; sourceTree = "<group>"; };
+		D8CFCA0821DF2CD3001592A9 /* UltravisualLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UltravisualLayout.swift; path = "../../../../../../../Downloads/Ultravisual_Kit 2/Ultravisual_Starter/Ultravisual/UltravisualLayout.swift"; sourceTree = "<group>"; };
 		D8D070C1215B32C2006FE6A0 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = Budgeter/ViewControllers/Login/LoginViewController.swift; sourceTree = SOURCE_ROOT; };
 		D8DEA79E21D5B8D80036B13A /* DashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
-		D8DEA7A421D5CF8B0036B13A /* DashboardExpenseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardExpenseCell.swift; sourceTree = "<group>"; };
-		D8DEA7A521D5CF8B0036B13A /* DashboardExpenseCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DashboardExpenseCell.xib; sourceTree = "<group>"; };
 		D8DEA7A821D6AB1B0036B13A /* DashboardExpenseCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardExpenseCellViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -101,6 +103,7 @@
 		D8285F4D218FC79100016F4A /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				D8CFCA0821DF2CD3001592A9 /* UltravisualLayout.swift */,
 				D8CEA55B21585EF100036263 /* RoundedButton.swift */,
 			);
 			path = Common;
@@ -136,7 +139,7 @@
 		D8847B6D2158373D007B77D2 /* Dashboard */ = {
 			isa = PBXGroup;
 			children = (
-				D8DEA7A421D5CF8B0036B13A /* DashboardExpenseCell.swift */,
+				D8CFCA0221DF2969001592A9 /* DashboardExpenseCollectionCell.swift */,
 			);
 			path = Dashboard;
 			sourceTree = "<group>";
@@ -261,7 +264,7 @@
 			isa = PBXGroup;
 			children = (
 				D8CC1DA6205F62C5008A5173 /* DashboardViewController.xib */,
-				D8DEA7A521D5CF8B0036B13A /* DashboardExpenseCell.xib */,
+				D8CFCA0321DF2969001592A9 /* DashboardExpenseCollectionCell.xib */,
 			);
 			path = Dashboard;
 			sourceTree = "<group>";
@@ -380,8 +383,8 @@
 			files = (
 				D8CC1D84205F480C008A5173 /* LaunchScreen.storyboard in Resources */,
 				D8CC1D81205F480C008A5173 /* Assets.xcassets in Resources */,
+				D8CFCA0521DF2969001592A9 /* DashboardExpenseCollectionCell.xib in Resources */,
 				D8CC1DA3205F4D8A008A5173 /* BasicTextInputViewController.xib in Resources */,
-				D8DEA7A721D5CF8B0036B13A /* DashboardExpenseCell.xib in Resources */,
 				D83103FC21C49B6000DD3376 /* NewExpenseViewController.xib in Resources */,
 				D8CC1DA8205F62C5008A5173 /* DashboardViewController.xib in Resources */,
 			);
@@ -407,13 +410,14 @@
 				D8CC1D77205F480C008A5173 /* AppDelegate.swift in Sources */,
 				D88B6BF220CCDE7B00BF1B71 /* CoreDataInterface.swift in Sources */,
 				D8CEA55C21585EF100036263 /* RoundedButton.swift in Sources */,
+				D8CFCA0921DF2CD3001592A9 /* UltravisualLayout.swift in Sources */,
 				D88B6BE520CCC03100BF1B71 /* LoginViewModel.swift in Sources */,
 				D8CC1DA7205F62C5008A5173 /* DashboardViewController.swift in Sources */,
 				D8D070C2215B32C2006FE6A0 /* LoginViewController.swift in Sources */,
 				D8285F4F218FC8AB00016F4A /* NewExpenseViewController.swift in Sources */,
 				D8DEA7A921D6AB1B0036B13A /* DashboardExpenseCellViewModel.swift in Sources */,
-				D8DEA7A621D5CF8B0036B13A /* DashboardExpenseCell.swift in Sources */,
 				D8285F51218FC92000016F4A /* NewExpenseViewModel.swift in Sources */,
+				D8CFCA0421DF2969001592A9 /* DashboardExpenseCollectionCell.swift in Sources */,
 				D88B6BE720CCC7BD00BF1B71 /* UIConstants.swift in Sources */,
 				D836D69E2198CD0F00D3E839 /* NewExpenseFlowCoordinator.swift in Sources */,
 				D8DEA79F21D5B8D80036B13A /* DashboardViewModel.swift in Sources */,
