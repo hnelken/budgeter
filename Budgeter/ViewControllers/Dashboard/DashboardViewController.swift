@@ -12,6 +12,7 @@ import UIKit
 final class DashboardViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
 
     @IBOutlet weak var expenseCollectionView: UICollectionView!
+    @IBOutlet weak var expenseCollectionLayout: UltravisualLayout!
 
     private let viewModel: DashboardViewModel
 
@@ -39,11 +40,18 @@ final class DashboardViewController: UIViewController, UICollectionViewDataSourc
         expenseCollectionView.reloadData()
     }
 
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        expenseCollectionView.layer.cornerRadius = 12
+        expenseCollectionView.clipsToBounds = true
+    }
+
     // MARK: - Setup
 
     private func setup() {
         let collectionCellNib = UINib(nibName: DashboardExpenseCollectionCell.identifier, bundle: nil)
         expenseCollectionView.register(collectionCellNib, forCellWithReuseIdentifier: DashboardExpenseCollectionCell.identifier)
+        expenseCollectionView.decelerationRate = UIScrollViewDecelerationRateFast
     }
 
     // MARK: - Actions
@@ -67,12 +75,18 @@ final class DashboardViewController: UIViewController, UICollectionViewDataSourc
 
         guard let expenseCell = cell as? DashboardExpenseCollectionCell else { return cell }
 
-        if indexPath.row % 2 == 0 {
-            expenseCell.backgroundColor = UIColor.gray
-        } else {
-            expenseCell.backgroundColor = UIColor.lightGray
-        }
+        expenseCell.backgroundColor = UIColor.white
         expenseCell.configure(for: viewModel.cellViewModel(for: indexPath))
         return expenseCell
+    }
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let layout = expenseCollectionLayout else { return }
+        let offset = layout.dragOffset * CGFloat(indexPath.item)
+        if collectionView.contentOffset.y != offset {
+            collectionView.setContentOffset(
+                CGPoint(x: 0, y: offset), animated: true
+            )
+        }
     }
 }

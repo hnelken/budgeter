@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 final class DashboardExpenseCellViewModel {
 
@@ -16,24 +17,38 @@ final class DashboardExpenseCellViewModel {
         self.expense = expense
     }
 
-    var nameLabelText: String? {
-        return expense.name
+    var nameLabelAttributedText: NSAttributedString? {
+        return expense.name?.attributed()
     }
 
-    var dateLabelText: String? {
+    var dateLabelAttributedText: NSAttributedString? {
         guard let date = expense.date else { return nil }
-        return "\(date)"
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MMM d, yyyy"
+        return formatter.string(from: date).attributed()
     }
 
-    var amountLabelText: String {
-        return "\(expense.amount)"
+    var amountLabelAttributedText: NSAttributedString {
+        return "$\(expense.amount)".attributed()
     }
 
-    var categoryLabelText: String? {
-        return expense.category?.name
+    var categoryLabelAttributedText: NSAttributedString? {
+        return expense.category?.name?.attributed()
     }
 
-    var commentLabelText: String? {
-        return expense.comment
+    var commentLabelAttributedText: NSAttributedString? {
+        return expense.comment?.attributed()
+    }
+}
+
+private extension String {
+    func attributed() -> NSAttributedString {
+        let strokeTextAttributes: [NSAttributedString.Key : Any] = [
+            .strokeColor : UIColor.white,
+            .foregroundColor : UIColor.black,
+            .strokeWidth : -1.0,
+            ]
+
+        return NSAttributedString(string: self, attributes: strokeTextAttributes)
     }
 }

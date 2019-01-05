@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DashboardViewController" customModule="Budgeter" customModuleProvider="target">
             <connections>
+                <outlet property="expenseCollectionLayout" destination="sf6-xF-NVm" id="dQZ-YH-kJY"/>
                 <outlet property="expenseCollectionView" destination="A9j-oF-zUY" id="s56-ny-Tga"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -57,9 +58,9 @@
                     <color key="textColor" red="0.066666666669999999" green="0.066666666669999999" blue="0.29411764709999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="A9j-oF-zUY">
-                    <rect key="frame" x="16" y="128" width="343" height="519"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="A9j-oF-zUY">
+                    <rect key="frame" x="16" y="128" width="343" height="500.5"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.45000000000000001" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <collectionViewLayout key="collectionViewLayout" id="sf6-xF-NVm" customClass="UltravisualLayout" customModule="Budgeter" customModuleProvider="target"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="9Wp-YT-w02"/>
@@ -72,9 +73,9 @@
                 <constraint firstItem="7yL-lJ-Rid" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="60" id="1Kz-wR-958"/>
                 <constraint firstItem="A9j-oF-zUY" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="16" id="4m8-W1-5wy"/>
                 <constraint firstItem="VGK-jA-LDD" firstAttribute="leading" secondItem="7yL-lJ-Rid" secondAttribute="trailing" constant="8" id="BHz-P2-V3b"/>
+                <constraint firstItem="A9j-oF-zUY" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.75" id="Cbc-Hf-yWm"/>
                 <constraint firstAttribute="trailing" secondItem="c3a-Mp-CPC" secondAttribute="trailing" constant="16" id="ID1-hb-JPB"/>
                 <constraint firstItem="c3a-Mp-CPC" firstAttribute="leading" secondItem="VGK-jA-LDD" secondAttribute="trailing" constant="8" id="L4u-ES-ZFq"/>
-                <constraint firstAttribute="bottom" secondItem="A9j-oF-zUY" secondAttribute="bottom" constant="20" id="LRo-c5-0k2"/>
                 <constraint firstItem="c3a-Mp-CPC" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="60" id="TA9-u5-eCw"/>
                 <constraint firstAttribute="trailing" secondItem="A9j-oF-zUY" secondAttribute="trailing" constant="16" id="i07-76-PEl"/>
                 <constraint firstItem="A9j-oF-zUY" firstAttribute="top" secondItem="VGK-jA-LDD" secondAttribute="bottom" constant="24" id="lJp-BM-svZ"/>

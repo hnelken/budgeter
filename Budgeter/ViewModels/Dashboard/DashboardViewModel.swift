@@ -30,7 +30,7 @@ final class DashboardViewModel {
     }
 
     func reloadData() {
-        expenses = currentUser?.expenseArray ?? []
+        expenses = currentUser?.expenseArray.reversed() ?? []
     }
 
     func cellViewModel(for indexPath: IndexPath) -> DashboardExpenseCellViewModel {
