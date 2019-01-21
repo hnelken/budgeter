@@ -21,15 +21,15 @@ final class DashboardExpenseCellViewModel {
         return expense.name?.attributed()
     }
 
+    var amountLabelAttributedText: NSAttributedString {
+        return "$\(expense.amount)".attributed()
+    }
+
     var dateLabelAttributedText: NSAttributedString? {
         guard let date = expense.date else { return nil }
         let formatter = DateFormatter()
-        formatter.dateFormat = "MMM d, yyyy"
+        formatter.dateFormat = "M/d/yyyy"
         return formatter.string(from: date).attributed()
-    }
-
-    var amountLabelAttributedText: NSAttributedString {
-        return "$\(expense.amount)".attributed()
     }
 
     var categoryLabelAttributedText: NSAttributedString? {

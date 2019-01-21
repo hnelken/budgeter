@@ -14,13 +14,18 @@ class DashboardExpenseCollectionCell: UICollectionViewCell {
 
     @IBOutlet weak var coverView: UIView!
     @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var paymentMethodLabel: UILabel!
     @IBOutlet weak var amountLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var commentLabel: UILabel!
+    @IBOutlet weak var commentTitleLabel: UILabel!
 
     func configure(for viewModel: DashboardExpenseCellViewModel) {
         nameLabel.attributedText = viewModel.nameLabelAttributedText
         amountLabel.attributedText = viewModel.amountLabelAttributedText
+        paymentMethodLabel.attributedText = viewModel.amountLabelAttributedText
         dateLabel.attributedText = viewModel.dateLabelAttributedText
+        commentLabel.attributedText = viewModel.commentLabelAttributedText
     }
 
     // Adapted from:
@@ -28,9 +33,9 @@ class DashboardExpenseCollectionCell: UICollectionViewCell {
     override func apply(_ layoutAttributes: UICollectionViewLayoutAttributes) {
         super.apply(layoutAttributes)
 
-        let standardHeight = UltravisualLayoutConstants.Cell.standardHeight
+        let standardHeight =  UltravisualLayoutConstants.Cell.standardHeight
         let featuredHeight = UltravisualLayoutConstants.Cell.featuredHeight
-
+        let minimumScaleFactor = UltravisualLayoutConstants.Cell.minimumScaleFactor
         let delta = 1 - (
             (featuredHeight - frame.height) / (featuredHeight - standardHeight)
         )
@@ -39,16 +44,28 @@ class DashboardExpenseCollectionCell: UICollectionViewCell {
         let maxAlpha: CGFloat = 0.45
         coverView.alpha = maxAlpha - (delta * (maxAlpha - minAlpha))
 
-        let scale = max(delta, 0.5)
+        let scale = max(delta, minimumScaleFactor)
         let newTransform: CGAffineTransform =
             scale == 1
                 ? .identity
                 : CGAffineTransform(scaleX: scale, y: scale)
-        nameLabel.transform = newTransform
-        amountLabel.transform = newTransform
-        dateLabel.transform = newTransform
 
-        amountLabel.alpha = delta
-        dateLabel.alpha = delta
+        scaleSubviews(with: newTransform)
+        fadeSubviews(withAlpha: delta)
+    }
+
+    private func scaleSubviews(with transform: CGAffineTransform) {
+        nameLabel.transform = transform
+//        commentLabel.transform = transform
+//        commentTitleLabel.transform = transform
+//        amountLabel.transform = transform
+//        dateLabel.transform = transform
+    }
+
+    private func fadeSubviews(withAlpha alpha: CGFloat) {
+//        amountLabel.alpha = alpha
+//        dateLabel.alpha = alpha
+        commentLabel.alpha = alpha
+        commentTitleLabel.alpha = alpha
     }
 }
