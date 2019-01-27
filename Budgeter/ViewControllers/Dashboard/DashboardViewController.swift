@@ -8,11 +8,13 @@
 
 import UIKit
 
+final class DashboardViewController: UIViewController {
 
-final class DashboardViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
-
+    @IBOutlet weak var carouselView: CarouselView!
     @IBOutlet weak var expenseCollectionView: UICollectionView!
     @IBOutlet weak var expenseCollectionLayout: UltravisualLayout!
+    @IBOutlet weak var previousButton: RoundedButton!
+    @IBOutlet weak var nextButton: RoundedButton!
 
     private let viewModel: DashboardViewModel
 
@@ -36,22 +38,35 @@ final class DashboardViewController: UIViewController, UICollectionViewDataSourc
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         viewModel.reloadData()
-        print(viewModel.numberOfRows)
         expenseCollectionView.reloadData()
     }
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        expenseCollectionView.layer.cornerRadius = 12
-        expenseCollectionView.clipsToBounds = true
+        carouselView.layer.cornerRadius = 12
+        carouselView.clipsToBounds = true
     }
 
     // MARK: - Setup
 
     private func setup() {
+        setupCollectionView()
+        setupCarouselView()
+        setupNextButton()
+    }
+
+    private func setupCollectionView() {
         let collectionCellNib = UINib(nibName: DashboardExpenseCollectionCell.identifier, bundle: nil)
         expenseCollectionView.register(collectionCellNib, forCellWithReuseIdentifier: DashboardExpenseCollectionCell.identifier)
         expenseCollectionView.decelerationRate = UIScrollViewDecelerationRateFast
+    }
+
+    private func setupCarouselView() {
+        carouselView.resetToFirstPage()
+    }
+
+    private func setupNextButton() {
+        nextButton.transform = CGAffineTransform(rotationAngle: -CGFloat.pi)
     }
 
     // MARK: - Actions
@@ -64,8 +79,17 @@ final class DashboardViewController: UIViewController, UICollectionViewDataSourc
         viewModel.backButtonPressed()
     }
 
-    // MARK: - UICollectionViewDataSource
+    @IBAction func previousButtonPressed(_ sender: Any) {
+        carouselView.previousPage()
+    }
 
+    @IBAction func nextButtonPressed(_ sender: Any) {
+        carouselView.nextPage()
+    }
+
+}
+
+extension DashboardViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewModel.numberOfRows
     }
@@ -79,7 +103,9 @@ final class DashboardViewController: UIViewController, UICollectionViewDataSourc
         expenseCell.configure(for: viewModel.cellViewModel(for: indexPath))
         return expenseCell
     }
+}
 
+extension DashboardViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let layout = expenseCollectionLayout else { return }
         let offset = layout.dragOffset * CGFloat(indexPath.item)
