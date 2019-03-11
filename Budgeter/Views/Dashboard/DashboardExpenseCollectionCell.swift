@@ -20,7 +20,7 @@ class DashboardExpenseCollectionCell: UICollectionViewCell {
     @IBOutlet weak var commentLabel: UILabel!
     @IBOutlet weak var commentTitleLabel: UILabel!
 
-    func configure(for viewModel: DashboardExpenseCellViewModel) {
+    func configure(with viewModel: DashboardExpenseCellViewModel) {
         nameLabel.attributedText = viewModel.nameLabelAttributedText
         amountLabel.attributedText = viewModel.amountLabelAttributedText
         paymentMethodLabel.attributedText = viewModel.amountLabelAttributedText

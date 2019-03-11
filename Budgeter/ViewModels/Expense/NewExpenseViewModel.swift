@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-protocol NewExpenseViewModelDelegate: class {
+protocol NewExpenseViewModelDelegate: AnyObject {
     func updateUIFromViewModel()
     func finishCreatingExpense()
 }

@@ -11,11 +11,11 @@ import UIKit
 import LocalAuthentication
 import CoreData
 
-protocol LoginFlowDelegate: class {
+protocol LoginFlowDelegate: AnyObject {
     func completeAuthentication(for user: User)
 }
 
-protocol LoginViewModelDelegate: class {
+protocol LoginViewModelDelegate: AnyObject {
     func configureUIForSuccess()
     func configureUIForFailure()
     func touchIDNotSupported()

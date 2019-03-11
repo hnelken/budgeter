@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D80FDD8D2235EDB5007EE8B7 /* HamburgerMenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80FDD8C2235EDB5007EE8B7 /* HamburgerMenuViewModel.swift */; };
+		D80FDD902235F27B007EE8B7 /* HamburgerMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80FDD8E2235F27B007EE8B7 /* HamburgerMenuTableViewCell.swift */; };
+		D80FDD912235F27B007EE8B7 /* HamburgerMenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D80FDD8F2235F27B007EE8B7 /* HamburgerMenuTableViewCell.xib */; };
+		D80FDD942237600F007EE8B7 /* HomeFlowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80FDD922237600F007EE8B7 /* HomeFlowViewController.swift */; };
+		D80FDD952237600F007EE8B7 /* HomeFlowViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D80FDD932237600F007EE8B7 /* HomeFlowViewController.xib */; };
 		D8285F4C218F8CB700016F4A /* Budgeter.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D8285F4A218F8CB600016F4A /* Budgeter.xcdatamodeld */; };
 		D8285F4F218FC8AB00016F4A /* NewExpenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8285F4E218FC8AB00016F4A /* NewExpenseViewController.swift */; };
 		D8285F51218FC92000016F4A /* NewExpenseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8285F50218FC92000016F4A /* NewExpenseViewModel.swift */; };
@@ -32,6 +37,8 @@
 		D8D070C2215B32C2006FE6A0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D070C1215B32C2006FE6A0 /* LoginViewController.swift */; };
 		D8DEA79F21D5B8D80036B13A /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8DEA79E21D5B8D80036B13A /* DashboardViewModel.swift */; };
 		D8DEA7A921D6AB1B0036B13A /* DashboardExpenseCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8DEA7A821D6AB1B0036B13A /* DashboardExpenseCellViewModel.swift */; };
+		D8E886732235DFCE009FF0C8 /* HamburgerMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E886712235DFCE009FF0C8 /* HamburgerMenuViewController.swift */; };
+		D8E886742235DFCE009FF0C8 /* HamburgerMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8E886722235DFCE009FF0C8 /* HamburgerMenuViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +52,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D80FDD8C2235EDB5007EE8B7 /* HamburgerMenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HamburgerMenuViewModel.swift; sourceTree = "<group>"; };
+		D80FDD8E2235F27B007EE8B7 /* HamburgerMenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HamburgerMenuTableViewCell.swift; sourceTree = "<group>"; };
+		D80FDD8F2235F27B007EE8B7 /* HamburgerMenuTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HamburgerMenuTableViewCell.xib; sourceTree = "<group>"; };
+		D80FDD922237600F007EE8B7 /* HomeFlowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFlowViewController.swift; sourceTree = "<group>"; };
+		D80FDD932237600F007EE8B7 /* HomeFlowViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeFlowViewController.xib; sourceTree = "<group>"; };
 		D8285F4B218F8CB600016F4A /* Budgeter.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Budgeter.xcdatamodel; sourceTree = "<group>"; };
 		D8285F4E218FC8AB00016F4A /* NewExpenseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewExpenseViewController.swift; sourceTree = "<group>"; };
 		D8285F50218FC92000016F4A /* NewExpenseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewExpenseViewModel.swift; sourceTree = "<group>"; };
@@ -74,6 +86,8 @@
 		D8D070C1215B32C2006FE6A0 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = Budgeter/ViewControllers/Login/LoginViewController.swift; sourceTree = SOURCE_ROOT; };
 		D8DEA79E21D5B8D80036B13A /* DashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
 		D8DEA7A821D6AB1B0036B13A /* DashboardExpenseCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardExpenseCellViewModel.swift; sourceTree = "<group>"; };
+		D8E886712235DFCE009FF0C8 /* HamburgerMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HamburgerMenuViewController.swift; sourceTree = "<group>"; };
+		D8E886722235DFCE009FF0C8 /* HamburgerMenuViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HamburgerMenuViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +156,7 @@
 		D8847B6D2158373D007B77D2 /* Dashboard */ = {
 			isa = PBXGroup;
 			children = (
+				D80FDD8E2235F27B007EE8B7 /* HamburgerMenuTableViewCell.swift */,
 				D8CFCA0221DF2969001592A9 /* DashboardExpenseCollectionCell.swift */,
 			);
 			path = Dashboard;
@@ -179,7 +194,10 @@
 		D8AB841D2158368500A1EE58 /* Dashboard */ = {
 			isa = PBXGroup;
 			children = (
+				D8E886712235DFCE009FF0C8 /* HamburgerMenuViewController.swift */,
 				D8CC1DA5205F62C5008A5173 /* DashboardViewController.swift */,
+				D80FDD922237600F007EE8B7 /* HomeFlowViewController.swift */,
+				D80FDD932237600F007EE8B7 /* HomeFlowViewController.xib */,
 			);
 			path = Dashboard;
 			sourceTree = "<group>";
@@ -268,6 +286,8 @@
 			children = (
 				D8CC1DA6205F62C5008A5173 /* DashboardViewController.xib */,
 				D8CFCA0321DF2969001592A9 /* DashboardExpenseCollectionCell.xib */,
+				D8E886722235DFCE009FF0C8 /* HamburgerMenuViewController.xib */,
+				D80FDD8F2235F27B007EE8B7 /* HamburgerMenuTableViewCell.xib */,
 			);
 			path = Dashboard;
 			sourceTree = "<group>";
@@ -285,6 +305,7 @@
 			children = (
 				D8DEA79E21D5B8D80036B13A /* DashboardViewModel.swift */,
 				D8DEA7A821D6AB1B0036B13A /* DashboardExpenseCellViewModel.swift */,
+				D80FDD8C2235EDB5007EE8B7 /* HamburgerMenuViewModel.swift */,
 			);
 			path = Dashboard;
 			sourceTree = "<group>";
@@ -387,9 +408,12 @@
 				D8CC1D84205F480C008A5173 /* LaunchScreen.storyboard in Resources */,
 				D8CC1D81205F480C008A5173 /* Assets.xcassets in Resources */,
 				D8CFCA0521DF2969001592A9 /* DashboardExpenseCollectionCell.xib in Resources */,
+				D8E886742235DFCE009FF0C8 /* HamburgerMenuViewController.xib in Resources */,
+				D80FDD912235F27B007EE8B7 /* HamburgerMenuTableViewCell.xib in Resources */,
 				D8CC1DA3205F4D8A008A5173 /* BasicTextInputViewController.xib in Resources */,
 				D83103FC21C49B6000DD3376 /* NewExpenseViewController.xib in Resources */,
 				D8CC1DA8205F62C5008A5173 /* DashboardViewController.xib in Resources */,
+				D80FDD952237600F007EE8B7 /* HomeFlowViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -414,15 +438,19 @@
 				D88D192F21FD48A40063B2CE /* CarouselView.swift in Sources */,
 				D88B6BF220CCDE7B00BF1B71 /* CoreDataInterface.swift in Sources */,
 				D8CEA55C21585EF100036263 /* RoundedButton.swift in Sources */,
+				D80FDD942237600F007EE8B7 /* HomeFlowViewController.swift in Sources */,
 				D8CFCA0921DF2CD3001592A9 /* UltravisualLayout.swift in Sources */,
 				D88B6BE520CCC03100BF1B71 /* LoginViewModel.swift in Sources */,
+				D80FDD8D2235EDB5007EE8B7 /* HamburgerMenuViewModel.swift in Sources */,
 				D8CC1DA7205F62C5008A5173 /* DashboardViewController.swift in Sources */,
 				D8D070C2215B32C2006FE6A0 /* LoginViewController.swift in Sources */,
 				D8285F4F218FC8AB00016F4A /* NewExpenseViewController.swift in Sources */,
 				D8DEA7A921D6AB1B0036B13A /* DashboardExpenseCellViewModel.swift in Sources */,
 				D8285F51218FC92000016F4A /* NewExpenseViewModel.swift in Sources */,
+				D80FDD902235F27B007EE8B7 /* HamburgerMenuTableViewCell.swift in Sources */,
 				D8CFCA0421DF2969001592A9 /* DashboardExpenseCollectionCell.swift in Sources */,
 				D88B6BE720CCC7BD00BF1B71 /* UIConstants.swift in Sources */,
+				D8E886732235DFCE009FF0C8 /* HamburgerMenuViewController.swift in Sources */,
 				D836D69E2198CD0F00D3E839 /* NewExpenseFlowCoordinator.swift in Sources */,
 				D8DEA79F21D5B8D80036B13A /* DashboardViewModel.swift in Sources */,
 			);

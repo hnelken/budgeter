@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol BasicTextInputViewModel: class {
+protocol BasicTextInputViewModel: AnyObject {
     var headerText: String { get }
     var detailText: String { get }
     var defaultInputFieldText: String { get }

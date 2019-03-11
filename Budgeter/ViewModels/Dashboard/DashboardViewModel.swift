@@ -8,8 +8,9 @@
 
 import Foundation
 
-protocol DashboardFlowDelegate: class {
+protocol DashboardFlowDelegate: AnyObject {
     func logOut()
+    func openHamburgerMenu()
     func createNewExpense()
 }
 
@@ -44,6 +45,7 @@ final class DashboardViewModel {
     }
 
     func backButtonPressed() {
-        flowDelegate?.logOut()
+//        flowDelegate?.logOut()
+        flowDelegate?.openHamburgerMenu()
     }
 }

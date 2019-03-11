@@ -18,7 +18,7 @@ private enum ExpenseEntryState {
     case comment
 }
 
-protocol NewExpenseFlowDelegate: class {
+protocol NewExpenseFlowDelegate: AnyObject {
     func completeExpenseCreation()
 }
 

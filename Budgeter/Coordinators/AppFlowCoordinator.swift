@@ -28,8 +28,10 @@ final class AppFlowCoordinator {
     }
 
     private func showDashboard() {
-        let dashboardViewController = newDashboardViewController()
-        navigationController.pushViewController(dashboardViewController, animated: true)
+        let homeFlow = HomeFlowViewController()
+
+//        let dashboardViewController = newDashboardViewController()
+        navigationController.pushViewController(homeFlow, animated: true)
     }
 
     private func showNewExpenseFlow() {
@@ -64,8 +66,6 @@ extension AppFlowCoordinator {
     }
 }
 
-// MARK: - Login Delegate
-
 extension AppFlowCoordinator: LoginFlowDelegate {
     func completeAuthentication(for user: User) {
         currentSessionUser = user
@@ -79,6 +79,10 @@ extension AppFlowCoordinator: DashboardFlowDelegate {
         navigationController.popViewController(animated: true)
     }
 
+    func openHamburgerMenu() {
+
+    }
+    
     func createNewExpense() {
         showNewExpenseFlow()
     }

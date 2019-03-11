@@ -56,9 +56,10 @@ final class DashboardViewController: UIViewController {
     }
 
     private func setupCollectionView() {
-        let collectionCellNib = UINib(nibName: DashboardExpenseCollectionCell.identifier, bundle: nil)
-        expenseCollectionView.register(collectionCellNib, forCellWithReuseIdentifier: DashboardExpenseCollectionCell.identifier)
+        let cellNib = UINib(nibName: DashboardExpenseCollectionCell.identifier, bundle: nil)
+        expenseCollectionView.register(cellNib, forCellWithReuseIdentifier: DashboardExpenseCollectionCell.identifier)
         expenseCollectionView.decelerationRate = UIScrollViewDecelerationRateFast
+        expenseCollectionView.showsVerticalScrollIndicator = false
     }
 
     private func setupCarouselView() {
@@ -66,6 +67,7 @@ final class DashboardViewController: UIViewController {
     }
 
     private func setupNextButton() {
+        // Rotate the button because im too lazy to rotate the asset
         nextButton.transform = CGAffineTransform(rotationAngle: -CGFloat.pi)
     }
 
@@ -100,7 +102,7 @@ extension DashboardViewController: UICollectionViewDataSource {
         guard let expenseCell = cell as? DashboardExpenseCollectionCell else { return cell }
 
         expenseCell.backgroundColor = UIColor.white
-        expenseCell.configure(for: viewModel.cellViewModel(for: indexPath))
+        expenseCell.configure(with: viewModel.cellViewModel(for: indexPath))
         return expenseCell
     }
 }
