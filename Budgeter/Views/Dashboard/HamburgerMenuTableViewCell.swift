@@ -10,6 +10,7 @@ import UIKit
 
 class HamburgerMenuTableViewCell: UITableViewCell {
 
+    static let height: CGFloat = 80
     static let identifier = "HamburgerMenuTableViewCell"
 
     @IBOutlet weak var titleLabel: UILabel!

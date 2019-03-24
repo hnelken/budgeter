@@ -58,4 +58,8 @@ extension HamburgerMenuViewController: UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
         viewModel.didSelectRow(at: indexPath)
     }
+
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return HamburgerMenuTableViewCell.height
+    }
 }

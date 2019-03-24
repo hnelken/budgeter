@@ -10,13 +10,19 @@ import UIKit
 
 final class DashboardViewController: UIViewController {
 
+    // MARK: - Outlets
+
     @IBOutlet weak var carouselView: CarouselView!
     @IBOutlet weak var expenseCollectionView: UICollectionView!
     @IBOutlet weak var expenseCollectionLayout: UltravisualLayout!
     @IBOutlet weak var previousButton: RoundedButton!
     @IBOutlet weak var nextButton: RoundedButton!
 
+    // MARK: - Properties
+    
     private let viewModel: DashboardViewModel
+
+    // MARK: - Init
 
     init(viewModel: DashboardViewModel) {
         self.viewModel = viewModel
@@ -29,6 +35,8 @@ final class DashboardViewController: UIViewController {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+
+    // MARK: - ViewController
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,8 +85,8 @@ final class DashboardViewController: UIViewController {
         viewModel.addButtonPressed()
     }
 
-    @IBAction func backButtonPressed(_ sender: Any) {
-        viewModel.backButtonPressed()
+    @IBAction func menuButtonPressed(_ sender: Any) {
+        viewModel.menuButtonPressed()
     }
 
     @IBAction func previousButtonPressed(_ sender: Any) {

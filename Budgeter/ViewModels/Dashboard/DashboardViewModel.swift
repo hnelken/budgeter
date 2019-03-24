@@ -44,8 +44,7 @@ final class DashboardViewModel {
         flowDelegate?.createNewExpense()
     }
 
-    func backButtonPressed() {
-//        flowDelegate?.logOut()
+    func menuButtonPressed() {
         flowDelegate?.openHamburgerMenu()
     }
 }

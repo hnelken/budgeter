@@ -14,6 +14,8 @@ protocol HamburgerMenuFlowDelegate: AnyObject {
 
 final class HamburgerMenuViewModel {
 
+    weak var flowDelegate: HamburgerMenuFlowDelegate?
+
     var numberOfRows: Int {
         return rows.count
     }
@@ -23,20 +25,20 @@ final class HamburgerMenuViewModel {
     }
 
     func didSelectRow(at indexPath: IndexPath) {
-        
+        flowDelegate?.didSelect(menuItem: rows[indexPath.row])
     }
 
     private var rows: [HamburgerMenuItem] = [
-        .item1,
-        .item2,
-        .item3
+//        .item1,
+//        .item2,
+        .logOut
     ]
 }
 
 enum HamburgerMenuItem {
     case item1
     case item2
-    case item3
+    case logOut
 
     var viewModel: HamburgerMenuCellViewModel {
         switch self {
@@ -44,8 +46,8 @@ enum HamburgerMenuItem {
             break
         case .item2:
             break
-        case .item3:
-            break
+        case .logOut:
+            return HamburgerMenuCellViewModel(title: "Log Out", iconName: "power-off")
         }
 
         return HamburgerMenuCellViewModel(

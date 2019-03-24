@@ -8,10 +8,21 @@
 
 import UIKit
 
+protocol HomeFlowDelegate: AnyObject {
+    func logOut()
+    func createNewExpense()
+}
+
 class HomeFlowViewController: UIViewController {
+
+    // MARK: - Outlets
 
     @IBOutlet weak var shadeView: UIView!
     @IBOutlet weak var hamburgerMenuView: UIView!
+
+    // MARK: - Properties
+
+    weak var flowDelegate: HomeFlowDelegate?
 
     private var hamburgerMenu: HamburgerMenuViewController?
     private var dashboard: DashboardViewController?
@@ -20,6 +31,8 @@ class HomeFlowViewController: UIViewController {
         return hamburgerMenuView.transform == .identity
     }
 
+    // MARK: - Init
+    
     init() {
         super.init(nibName: "HomeFlowViewController", bundle: Bundle(for: HomeFlowViewController.self))
     }
@@ -27,6 +40,8 @@ class HomeFlowViewController: UIViewController {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+
+    // MARK: - ViewController
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,22 +56,11 @@ class HomeFlowViewController: UIViewController {
         setHamburgerMenuVisible(false, animated: false)
     }
 
+    // MARK: - Setup
+
     private func setup() {
-        setupChildViewControllers()
         setupTapGesture()
-    }
-
-    private func setupChildViewControllers() {
-        let dashboardViewModel = DashboardViewModel()
-        dashboardViewModel.flowDelegate = self
-        let dashboardViewController = DashboardViewController(viewModel: dashboardViewModel)
-        dashboard = dashboardViewController
-        addChild(viewController: dashboardViewController, toView: view, toBack: true)
-
-        let menuViewModel = HamburgerMenuViewModel()
-        let menuViewController = HamburgerMenuViewController(viewModel: menuViewModel)
-        hamburgerMenu = menuViewController
-        addChild(viewController: menuViewController, toView: hamburgerMenuView, toBack: false)
+        setupChildViewControllers()
     }
 
     private func setupTapGesture() {
@@ -64,25 +68,40 @@ class HomeFlowViewController: UIViewController {
         shadeView.addGestureRecognizer(tapGesture)
     }
 
+    private func setupChildViewControllers() {
+        setupDashboardViewController()
+        setupHamburgerMenuViewController()
+    }
+
+    private func setupDashboardViewController() {
+        let dashboardViewModel = DashboardViewModel()
+        dashboardViewModel.flowDelegate = self
+        let dashboardViewController = DashboardViewController(viewModel: dashboardViewModel)
+        dashboard = dashboardViewController
+        addChild(viewController: dashboardViewController, toView: view, toBack: true)
+    }
+
+    private func setupHamburgerMenuViewController() {
+        let menuViewModel = HamburgerMenuViewModel()
+        menuViewModel.flowDelegate = self
+        let menuViewController = HamburgerMenuViewController(viewModel: menuViewModel)
+        hamburgerMenu = menuViewController
+        addChild(viewController: menuViewController, toView: hamburgerMenuView, toBack: false)
+    }
+
+    // MARK: - Actions
+
     @objc private func didTapToHideHamburgerMenu() {
         if isMenuShowing {
             setHamburgerMenuVisible(false, animated: true)
         }
     }
 
-    private func addChild(viewController: UIViewController, toView childView: UIView, toBack: Bool) {
-        addChildViewController(viewController)
-        childView.addSubview(viewController.view)
-        if toBack {
-            childView.sendSubview(toBack: viewController.view)
-        }
-        viewController.didMove(toParentViewController: self)
-    }
+    // MARK: - Helpers
 
     private func setHamburgerMenuVisible(_ visible: Bool, animated: Bool) {
         let transform: CGAffineTransform = visible ? .identity : CGAffineTransform(translationX: -UIScreen.main.bounds.width, y: 0.0)
         let shadeAlpha: CGFloat = visible ? 1.0 : 0.0
-
         if animated {
             UIView.animate(withDuration: 0.25) { [weak self] in
                 self?.shadeView.alpha = shadeAlpha
@@ -96,15 +115,27 @@ class HomeFlowViewController: UIViewController {
 }
 
 extension HomeFlowViewController: DashboardFlowDelegate {
-    func logOut() {
-
-    }
-
     func openHamburgerMenu() {
         setHamburgerMenuVisible(true, animated: true)
     }
 
     func createNewExpense() {
+        flowDelegate?.createNewExpense()
+    }
 
+    func logOut() {
+        flowDelegate?.logOut()
+    }
+
+}
+
+extension HomeFlowViewController: HamburgerMenuFlowDelegate {
+    func didSelect(menuItem: HamburgerMenuItem) {
+        switch menuItem {
+        case .logOut:
+            logOut()
+        default:
+            break
+        }
     }
 }

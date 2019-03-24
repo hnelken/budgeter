@@ -19,7 +19,7 @@ final class AppFlowCoordinator {
     private init() { setup() }
     
     let navigationController = UINavigationController()
-    private var newExpenseFlow: NewExpenseFlowCoordinator?
+    private var modalNewExpenseFlow: NewExpenseFlowCoordinator?
     private(set) var currentSessionUser: User?
 
     private func setup() {
@@ -27,17 +27,15 @@ final class AppFlowCoordinator {
         navigationController.pushViewController(loginViewController, animated: false)
     }
 
-    private func showDashboard() {
-        let homeFlow = HomeFlowViewController()
-
-//        let dashboardViewController = newDashboardViewController()
+    private func showHomeFlow() {
+        let homeFlow = newHomeFlowViewController()
         navigationController.pushViewController(homeFlow, animated: true)
     }
 
     private func showNewExpenseFlow() {
         let newExpenseFlow = newExpenseFlowCoordinator()
         navigationController.present(newExpenseFlow.navigationController, animated: true)
-        self.newExpenseFlow = newExpenseFlow
+        self.modalNewExpenseFlow = newExpenseFlow
     }
 }
 
@@ -51,11 +49,10 @@ extension AppFlowCoordinator {
         return viewController
     }
 
-    private func newDashboardViewController() -> DashboardViewController {
-        let viewModel = DashboardViewModel()
-        viewModel.flowDelegate = self
-        let viewController = DashboardViewController(viewModel: viewModel)
-        return viewController
+    private func newHomeFlowViewController() -> HomeFlowViewController {
+        let homeFlow = HomeFlowViewController()
+        homeFlow.flowDelegate = self
+        return homeFlow
     }
 
     private func newExpenseFlowCoordinator() -> NewExpenseFlowCoordinator {
@@ -69,18 +66,14 @@ extension AppFlowCoordinator {
 extension AppFlowCoordinator: LoginFlowDelegate {
     func completeAuthentication(for user: User) {
         currentSessionUser = user
-        showDashboard()
+        showHomeFlow()
     }
 }
 
-extension AppFlowCoordinator: DashboardFlowDelegate {
+extension AppFlowCoordinator: HomeFlowDelegate {
     func logOut() {
         currentSessionUser = nil
         navigationController.popViewController(animated: true)
-    }
-
-    func openHamburgerMenu() {
-
     }
     
     func createNewExpense() {
@@ -91,6 +84,6 @@ extension AppFlowCoordinator: DashboardFlowDelegate {
 extension AppFlowCoordinator: NewExpenseFlowDelegate {
     func completeExpenseCreation() {
         navigationController.dismiss(animated: true)
-        newExpenseFlow = nil
+        modalNewExpenseFlow = nil
     }
 }
