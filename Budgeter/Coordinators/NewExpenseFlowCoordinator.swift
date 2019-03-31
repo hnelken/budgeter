@@ -9,24 +9,24 @@
 import Foundation
 import UIKit
 
-private enum ExpenseEntryState {
-    case name
-    case amount
-    case date
-    case category
-    case paymentMethod
-    case comment
-}
-
 protocol NewExpenseFlowDelegate: AnyObject {
     func completeExpenseCreation()
 }
 
-protocol NewExpenseInfoStep {
-    var submitAction: ((Any) -> ())? { get }
-}
-
 final class NewExpenseFlowCoordinator {
+
+    enum ExpenseEntryState: Int {
+        case name
+        case amount
+        case date
+        case category
+        case paymentMethod
+        case comment
+
+        var nextState: ExpenseEntryState? {
+            return ExpenseEntryState(rawValue: rawValue + 1)
+        }
+    }
 
     weak var flowDelegate: NewExpenseFlowDelegate?
 
@@ -34,40 +34,139 @@ final class NewExpenseFlowCoordinator {
 
     private var state: ExpenseEntryState = .name
 
+    private var expenseName: String = ""
+    private var expenseAmount: String = ""
+    private var expenseDate: String = ""
+    private var expenseCategory: String = ""
+    private var expensePaymentMethod: String = ""
+    private var expenseComments: String = ""
+
     func setup() {
-        let nameEntryViewController = newTextEntryViewController()
-        navigationController.pushViewController(nameEntryViewController, animated: false)
+        setViewControllerForState()
     }
 
     private func proceed() {
+        if let nextState = state.nextState {
+            state = nextState
+            setViewControllerForState()
+        } else {
+            createExpense()
+            flowDelegate?.completeExpenseCreation()
+        }
+    }
+
+    private func setViewControllerForState() {
+//        switch state {
+//        case .name:
+//            let viewController = newTextEntryViewController(for: state)
+//            currentStep = viewController
+//        case .amount:
+//            let viewController = newTextEntryViewController(for: state)
+//            currentStep = viewController
+//        case .date:
+//            let viewController = newTextEntryViewController(for: state)
+//            currentStep = viewController
+//        case .category:
+//            let viewController = newTextEntryViewController(for: state)
+//            currentStep = viewController
+//        case .paymentMethod:
+//            let viewController = newTextEntryViewController(for: state)
+//            currentStep = viewController
+//        case .comment:
+//        }
+
+        let viewController = newTextEntryViewController(for: state)
+        navigationController.pushViewController(viewController, animated: true)
+    }
+
+    private func handleTextResultFromCurrentStep(_ result: String?) {
+        guard let result = result else { return }
         switch state {
         case .name:
-            state = .amount
+            handleNameResult(result)
         case .amount:
-            state = .date
+            handleAmountResult(result)
         case .date:
-            state = .category
+            handleDateResult(result)
         case .category:
-            state = .paymentMethod
+            handleCategoryResult(result)
         case .paymentMethod:
-            state = .comment
+            handlePaymentMethodResult(result)
         case .comment:
-            state = .amount
+            handleCommentsResult(result)
         }
+    }
+
+    private func handleNameResult(_ result: String) {
+        expenseName = result
+    }
+
+    private func handleAmountResult(_ result: String) {
+        expenseAmount = result
+    }
+
+    private func handleDateResult(_ result: String) {
+        expenseDate = result
+    }
+
+    private func handleCategoryResult(_ result: String) {
+        expenseCategory = result
+    }
+
+    private func handlePaymentMethodResult(_ result: String) {
+        expensePaymentMethod = result
+    }
+
+    private func handleCommentsResult(_ result: String) {
+        expenseComments = result
+    }
+
+    private func createExpense() {
+        // TODO: Flesh out expense object
+        guard let currentUser = currentUser else { return }
+        let _ = CoreDataInterface.shared.createExpense(
+            user: currentUser,
+            name: expenseName,
+            amount: Double(expenseAmount) ?? 0.0,
+            date: Date(),
+            category: nil,
+            comment: expenseComments
+        )
     }
 }
 
 extension NewExpenseFlowCoordinator {
-    private func newTextEntryViewController() -> NewExpenseViewController {
-        let textEntryViewModel = NewExpenseViewModel()
-        let textEntryViewController = NewExpenseViewController(viewModel: textEntryViewModel) { [weak self] result in
-            // TODO: Handle return of data from one step here
-            self?.flowDelegate?.completeExpenseCreation()
+    private func newTextEntryViewController(for state: ExpenseEntryState) -> NewExpenseViewController {
+        let viewModel: ExpenseEditStepViewModel
+        switch state {
+        case .name:
+            viewModel = ExpenseNameStepViewModel()
+        case .amount:
+            viewModel = ExpenseAmountStepViewModel()
+        case .date:
+            viewModel = ExpenseDateStepViewModel()
+        case .category:
+            viewModel = ExpenseCategoryStepViewModel()
+        case .paymentMethod:
+            viewModel = ExpensePaymentMethodStepViewModel()
+        case .comment:
+            viewModel = ExpenseCommentStepViewModel()
         }
-        return textEntryViewController
+        viewModel.buttonAction = { [weak self] result in
+            self?.handleTextResultFromCurrentStep(result)
+            self?.proceed()
+        }
+        return NewExpenseViewController(viewModel: viewModel)
     }
 
     private func newDateEntryViewController() {
         // TODO: Return date entry
+
+        switch state {
+        case .date:
+            break
+        default:
+            break
+        }
     }
 }

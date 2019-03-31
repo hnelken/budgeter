@@ -25,6 +25,10 @@ final class LoginViewModel: BasicTextInputViewModel {
 
     weak var flowDelegate: LoginFlowDelegate?
     weak var delegate: LoginViewModelDelegate?
+    private(set) var currentUser: User?
+    private(set) var isNewUser = false
+
+    // MARK: - BasicTextInputViewModel
 
     var headerText: String {
         return "Welcome!"
@@ -34,26 +38,15 @@ final class LoginViewModel: BasicTextInputViewModel {
         return "Enter your password to continue, or leave it blank to use Touch ID, even if its your first time!"
     }
 
-    var buttonText: String {
-        return "Enter"
-    }
-
-    var defaultInputFieldText: String {
-        return ""
-    }
-
     var placeHolderText: String {
         return "Password"
     }
 
-    var buttonAction: ((String?) -> ())? {
-        return { [weak self] inputString in
-            self?.authenticate(textFieldContent: inputString)
-        }
+    var buttonText: String {
+        return "Enter"
     }
 
-    private(set) var currentUser: User?
-    private(set) var isNewUser = false
+    var buttonAction: ((String?) -> ())?
 
     // MARK: - CoreData
 
@@ -82,8 +75,8 @@ final class LoginViewModel: BasicTextInputViewModel {
 
     // MARK: - Authentication
 
-    private func authenticate(textFieldContent: String?) {
-        if let text = textFieldContent, !text.isEmpty {
+    func authenticate(inputString: String?) {
+        if let text = inputString, !text.isEmpty {
             authenticateViaPassword(text)
         } else {
             authenticateViaTouchID()

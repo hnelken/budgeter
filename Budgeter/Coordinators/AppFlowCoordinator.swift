@@ -44,6 +44,9 @@ final class AppFlowCoordinator {
 extension AppFlowCoordinator {
     private func newLoginViewController() -> LoginViewController {
         let viewModel = LoginViewModel()
+        viewModel.buttonAction = { [weak viewModel] inputString in
+            viewModel?.authenticate(inputString: inputString)
+        }
         viewModel.flowDelegate = self
         let viewController = LoginViewController(viewModel: viewModel)
         return viewController

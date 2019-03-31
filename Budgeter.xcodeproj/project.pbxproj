@@ -19,6 +19,7 @@
 		D836D69A2198B5FF00D3E839 /* AppFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D836D6992198B5FF00D3E839 /* AppFlowCoordinator.swift */; };
 		D836D69E2198CD0F00D3E839 /* NewExpenseFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D836D69D2198CD0F00D3E839 /* NewExpenseFlowCoordinator.swift */; };
 		D83E8CC822472054007D9274 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83E8CC722472054007D9274 /* UIViewController+Extensions.swift */; };
+		D864A5E1224FF757009F4358 /* ExpenseEditStepViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D864A5E0224FF757009F4358 /* ExpenseEditStepViewModel.swift */; };
 		D88B6BE520CCC03100BF1B71 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88B6BE420CCC03100BF1B71 /* LoginViewModel.swift */; };
 		D88B6BE720CCC7BD00BF1B71 /* UIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88B6BE620CCC7BD00BF1B71 /* UIConstants.swift */; };
 		D88B6BF220CCDE7B00BF1B71 /* CoreDataInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88B6BF120CCDE7B00BF1B71 /* CoreDataInterface.swift */; };
@@ -65,6 +66,7 @@
 		D836D6992198B5FF00D3E839 /* AppFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFlowCoordinator.swift; sourceTree = "<group>"; };
 		D836D69D2198CD0F00D3E839 /* NewExpenseFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewExpenseFlowCoordinator.swift; sourceTree = "<group>"; };
 		D83E8CC722472054007D9274 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
+		D864A5E0224FF757009F4358 /* ExpenseEditStepViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseEditStepViewModel.swift; sourceTree = "<group>"; };
 		D88B6BE420CCC03100BF1B71 /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		D88B6BE620CCC7BD00BF1B71 /* UIConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIConstants.swift; sourceTree = "<group>"; };
 		D88B6BF120CCDE7B00BF1B71 /* CoreDataInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataInterface.swift; sourceTree = "<group>"; };
@@ -325,6 +327,7 @@
 			isa = PBXGroup;
 			children = (
 				D8285F50218FC92000016F4A /* NewExpenseViewModel.swift */,
+				D864A5E0224FF757009F4358 /* ExpenseEditStepViewModel.swift */,
 			);
 			path = Expense;
 			sourceTree = "<group>";
@@ -444,6 +447,7 @@
 			files = (
 				D83E8CC822472054007D9274 /* UIViewController+Extensions.swift in Sources */,
 				D836D69A2198B5FF00D3E839 /* AppFlowCoordinator.swift in Sources */,
+				D864A5E1224FF757009F4358 /* ExpenseEditStepViewModel.swift in Sources */,
 				D8CC1DA2205F4D8A008A5173 /* BasicTextInputViewController.swift in Sources */,
 				D8285F4C218F8CB700016F4A /* Budgeter.xcdatamodeld in Sources */,
 				D8CC1D77205F480C008A5173 /* AppDelegate.swift in Sources */,

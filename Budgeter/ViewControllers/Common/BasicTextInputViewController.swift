@@ -11,10 +11,23 @@ import UIKit
 protocol BasicTextInputViewModel: AnyObject {
     var headerText: String { get }
     var detailText: String { get }
+
+    var keyboardType: UIKeyboardType { get }
     var defaultInputFieldText: String { get }
     var placeHolderText: String { get }
+
     var buttonText: String { get }
-    var buttonAction: ((String?) -> ())? { get }
+    var buttonAction: ((String?) -> ())? { get set }
+}
+
+extension BasicTextInputViewModel {
+    var keyboardType: UIKeyboardType {
+        return .asciiCapable
+    }
+
+    var defaultInputFieldText: String {
+        return ""
+    }
 }
 
 class BasicTextInputViewController: UIViewController {
