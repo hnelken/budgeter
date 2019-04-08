@@ -20,6 +20,8 @@
 		D836D69E2198CD0F00D3E839 /* NewExpenseFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D836D69D2198CD0F00D3E839 /* NewExpenseFlowCoordinator.swift */; };
 		D83E8CC822472054007D9274 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83E8CC722472054007D9274 /* UIViewController+Extensions.swift */; };
 		D864A5E1224FF757009F4358 /* ExpenseEditStepViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D864A5E0224FF757009F4358 /* ExpenseEditStepViewModel.swift */; };
+		D885E0F8225A70BF00F29E2B /* ExpenseEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D885E0F6225A70BF00F29E2B /* ExpenseEditViewController.swift */; };
+		D885E0F9225A70BF00F29E2B /* ExpenseEditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D885E0F7225A70BF00F29E2B /* ExpenseEditViewController.xib */; };
 		D88B6BE520CCC03100BF1B71 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88B6BE420CCC03100BF1B71 /* LoginViewModel.swift */; };
 		D88B6BE720CCC7BD00BF1B71 /* UIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88B6BE620CCC7BD00BF1B71 /* UIConstants.swift */; };
 		D88B6BF220CCDE7B00BF1B71 /* CoreDataInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88B6BF120CCDE7B00BF1B71 /* CoreDataInterface.swift */; };
@@ -67,6 +69,8 @@
 		D836D69D2198CD0F00D3E839 /* NewExpenseFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewExpenseFlowCoordinator.swift; sourceTree = "<group>"; };
 		D83E8CC722472054007D9274 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		D864A5E0224FF757009F4358 /* ExpenseEditStepViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseEditStepViewModel.swift; sourceTree = "<group>"; };
+		D885E0F6225A70BF00F29E2B /* ExpenseEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseEditViewController.swift; sourceTree = "<group>"; };
+		D885E0F7225A70BF00F29E2B /* ExpenseEditViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExpenseEditViewController.xib; sourceTree = "<group>"; };
 		D88B6BE420CCC03100BF1B71 /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		D88B6BE620CCC7BD00BF1B71 /* UIConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIConstants.swift; sourceTree = "<group>"; };
 		D88B6BF120CCDE7B00BF1B71 /* CoreDataInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataInterface.swift; sourceTree = "<group>"; };
@@ -134,6 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				D83103FB21C49B6000DD3376 /* NewExpenseViewController.xib */,
+				D885E0F7225A70BF00F29E2B /* ExpenseEditViewController.xib */,
 			);
 			path = Expense;
 			sourceTree = "<group>";
@@ -216,6 +221,7 @@
 		D8AB841E2158369600A1EE58 /* Expense */ = {
 			isa = PBXGroup;
 			children = (
+				D885E0F6225A70BF00F29E2B /* ExpenseEditViewController.swift */,
 				D8285F4E218FC8AB00016F4A /* NewExpenseViewController.swift */,
 			);
 			path = Expense;
@@ -422,6 +428,7 @@
 				D8CC1D84205F480C008A5173 /* LaunchScreen.storyboard in Resources */,
 				D8CC1D81205F480C008A5173 /* Assets.xcassets in Resources */,
 				D8CFCA0521DF2969001592A9 /* DashboardExpenseCollectionCell.xib in Resources */,
+				D885E0F9225A70BF00F29E2B /* ExpenseEditViewController.xib in Resources */,
 				D8E886742235DFCE009FF0C8 /* HamburgerMenuViewController.xib in Resources */,
 				D80FDD912235F27B007EE8B7 /* HamburgerMenuTableViewCell.xib in Resources */,
 				D8CC1DA3205F4D8A008A5173 /* BasicTextInputViewController.xib in Resources */,
@@ -453,6 +460,7 @@
 				D8CC1D77205F480C008A5173 /* AppDelegate.swift in Sources */,
 				D88D192F21FD48A40063B2CE /* CarouselView.swift in Sources */,
 				D88B6BF220CCDE7B00BF1B71 /* CoreDataInterface.swift in Sources */,
+				D885E0F8225A70BF00F29E2B /* ExpenseEditViewController.swift in Sources */,
 				D8CEA55C21585EF100036263 /* RoundedButton.swift in Sources */,
 				D80FDD942237600F007EE8B7 /* HomeFlowViewController.swift in Sources */,
 				D8CFCA0921DF2CD3001592A9 /* UltravisualLayout.swift in Sources */,

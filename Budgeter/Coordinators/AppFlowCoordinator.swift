@@ -19,7 +19,7 @@ final class AppFlowCoordinator {
     private init() { setup() }
     
     let navigationController = UINavigationController()
-    private var modalNewExpenseFlow: NewExpenseFlowCoordinator?
+    private var modalNewExpenseFlow: ExpenseEditViewController?
     private(set) var currentSessionUser: User?
 
     private func setup() {
@@ -33,9 +33,11 @@ final class AppFlowCoordinator {
     }
 
     private func showNewExpenseFlow() {
-        let newExpenseFlow = newExpenseFlowCoordinator()
-        navigationController.present(newExpenseFlow.navigationController, animated: true)
-        self.modalNewExpenseFlow = newExpenseFlow
+        let expenseEdit = ExpenseEditViewController()
+        navigationController.pushViewController(expenseEdit, animated: true)
+//        let newExpenseFlow = newExpenseFlowCoordinator()
+//        navigationController.present(newExpenseFlow.navigationController, animated: true)
+        self.modalNewExpenseFlow = expenseEdit//newExpenseFlow
     }
 }
 
