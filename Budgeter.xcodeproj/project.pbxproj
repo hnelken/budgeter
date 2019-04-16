@@ -26,6 +26,7 @@
 		D88B6BE720CCC7BD00BF1B71 /* UIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88B6BE620CCC7BD00BF1B71 /* UIConstants.swift */; };
 		D88B6BF220CCDE7B00BF1B71 /* CoreDataInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88B6BF120CCDE7B00BF1B71 /* CoreDataInterface.swift */; };
 		D88D192F21FD48A40063B2CE /* CarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88D192E21FD48A40063B2CE /* CarouselView.swift */; };
+		D8BAB89F22657524007BCCA9 /* TypingFocusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BAB89E22657524007BCCA9 /* TypingFocusViewController.swift */; };
 		D8CC1D77205F480C008A5173 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CC1D76205F480C008A5173 /* AppDelegate.swift */; };
 		D8CC1D81205F480C008A5173 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D8CC1D80205F480C008A5173 /* Assets.xcassets */; };
 		D8CC1D84205F480C008A5173 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8CC1D82205F480C008A5173 /* LaunchScreen.storyboard */; };
@@ -75,6 +76,7 @@
 		D88B6BE620CCC7BD00BF1B71 /* UIConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIConstants.swift; sourceTree = "<group>"; };
 		D88B6BF120CCDE7B00BF1B71 /* CoreDataInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataInterface.swift; sourceTree = "<group>"; };
 		D88D192E21FD48A40063B2CE /* CarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselView.swift; sourceTree = "<group>"; };
+		D8BAB89E22657524007BCCA9 /* TypingFocusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypingFocusViewController.swift; sourceTree = "<group>"; };
 		D8CC1D73205F480C008A5173 /* Budgeter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Budgeter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8CC1D76205F480C008A5173 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D8CC1D80205F480C008A5173 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				D8CC1DA0205F4D8A008A5173 /* BasicTextInputViewController.swift */,
+				D8BAB89E22657524007BCCA9 /* TypingFocusViewController.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -465,6 +468,7 @@
 				D80FDD942237600F007EE8B7 /* HomeFlowViewController.swift in Sources */,
 				D8CFCA0921DF2CD3001592A9 /* UltravisualLayout.swift in Sources */,
 				D88B6BE520CCC03100BF1B71 /* LoginViewModel.swift in Sources */,
+				D8BAB89F22657524007BCCA9 /* TypingFocusViewController.swift in Sources */,
 				D80FDD8D2235EDB5007EE8B7 /* HamburgerMenuViewModel.swift in Sources */,
 				D8CC1DA7205F62C5008A5173 /* DashboardViewController.swift in Sources */,
 				D8D070C2215B32C2006FE6A0 /* LoginViewController.swift in Sources */,

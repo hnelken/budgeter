@@ -30,7 +30,7 @@ extension BasicTextInputViewModel {
     }
 }
 
-class BasicTextInputViewController: UIViewController {
+class BasicTextInputViewController: TypingFocusViewController {
 
     @IBOutlet weak var headerLabel: UILabel!
     @IBOutlet weak var detailLabel: UILabel!
@@ -55,12 +55,8 @@ class BasicTextInputViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.isNavigationBarHidden = true
-        registerKeyboardNotifications()
+        viewInFocus = button
         setupFromViewModel()
-    }
-
-    deinit {
-        removeKeyboardNotifications()
     }
 
     // MARK: - Setup
@@ -77,51 +73,11 @@ class BasicTextInputViewController: UIViewController {
         updateUI()
     }
 
-    private func registerKeyboardNotifications() {
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(keyboardDidShow(_:)),
-            name: .UIKeyboardDidShow,
-            object: view.window
-        )
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(keyboardWillHide(_:)),
-            name: .UIKeyboardWillHide,
-            object: view.window
-        )
-    }
-
-    private func removeKeyboardNotifications() {
-        NotificationCenter.default.removeObserver(self)
-    }
-
     // MARK: - Actions
 
     @IBAction private func enterButtonPressed(_ sender: Any) {
-        inputField.resignFirstResponder()
+        view.endEditing(true)
         viewModel.buttonAction?(inputField.text)
-    }
-
-    @objc private func keyboardDidShow(_ sender: Notification) {
-        guard let keyboardRect = sender.userInfo?[UIKeyboardFrameEndUserInfoKey] as? CGRect else { return }
-
-        let keyboardOriginY = UIScreen.main.bounds.height - keyboardRect.height
-        let movementThreshold = button.frame.maxY + 8
-        if view.frame.origin.y == 0 && keyboardOriginY < movementThreshold {
-            let offset = movementThreshold - keyboardOriginY
-            UIView.animate(withDuration: 0.3) { [weak self] in
-                self?.view.frame.origin.y -= offset
-            }
-        }
-    }
-
-    @objc private func keyboardWillHide(_ sender: Notification) {
-        if view.frame.origin.y != 0 {
-            UIView.animate(withDuration: 0.15) { [weak self] in
-                self?.view.frame.origin.y = 0
-            }
-        }
     }
 
     func presentAlert(withTitle title: String, andMessage message: String) {
