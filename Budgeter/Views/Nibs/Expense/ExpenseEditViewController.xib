@@ -22,6 +22,7 @@
                 <outlet property="dollarsTextField" destination="DHn-XD-kPa" id="NQX-CQ-sfH"/>
                 <outlet property="nameTextField" destination="Wim-hZ-Ub3" id="Oeh-bh-d15"/>
                 <outlet property="paymentMethodTextField" destination="nIw-mA-em5" id="5ef-aa-sus"/>
+                <outlet property="scrollView" destination="xtx-uu-L79" id="oJ9-PS-qX1"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

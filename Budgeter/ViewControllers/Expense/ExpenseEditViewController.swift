@@ -21,7 +21,7 @@ class ExpenseEditViewController: TypingFocusViewController {
     @IBOutlet weak var paymentMethodTextField: UITextField!
     @IBOutlet weak var commentsTextField: UITextField!
 
-    // MARK: - Init
+    // MARK: - Lifecycle
     
     init() {
         super.init(nibName: "ExpenseEditViewController", bundle: Bundle(for: ExpenseEditViewController.self))
@@ -31,20 +31,11 @@ class ExpenseEditViewController: TypingFocusViewController {
         fatalError("init(coder:) has not been implemented")
     }
 
-    // MARK: - UIViewController
-
     override func viewDidLoad() {
         super.viewDidLoad()
-        [nameTextField,
-         dollarsTextField,
-         centsTextField,
-         dateTextField,
-         categoryTextField,
-         paymentMethodTextField,
-         commentsTextField
-        ].forEach {
-            $0?.delegate = self
-        }
+        dateTextField.delegate = self
+        datePickerHeightConstraint.constant = 0
+        view.layoutIfNeeded()
     }
 
     // MARK: - Actions
@@ -53,26 +44,41 @@ class ExpenseEditViewController: TypingFocusViewController {
         navigationController?.popViewController(animated: true)
     }
 
-    @IBAction func dateTextFieldTapped(_ sender: Any) {
-        if datePickerHeightConstraint.constant == 0.0 {
-            datePickerHeightConstraint.constant = 150.0
-        } else {
-            datePickerHeightConstraint.constant = 0.0
+    override func releaseNonTypingFocus() {
+        super.releaseNonTypingFocus()
+        hideDatePicker(animated: true)
+    }
+
+    // MARK: - Date Picker
+
+    private func showDatePicker(animated: Bool) {
+        guard datePickerHeightConstraint.constant == 0 else { return }
+        setDatePickerHeightConstraint(to: 150.0, animated: animated)
+    }
+
+    private func hideDatePicker(animated: Bool) {
+        guard datePickerHeightConstraint.constant == 150 else { return }
+        setDatePickerHeightConstraint(to: 0.0, animated: animated)
+    }
+
+    private func setDatePickerHeightConstraint(
+        to constant: CGFloat,
+        animated: Bool
+    ) {
+        datePickerHeightConstraint.constant = constant
+        if animated {
+            UIView.animate(withDuration: 0.25) {
+                self.view.layoutIfNeeded()
+            }
         }
     }
 }
 
 extension ExpenseEditViewController: UITextFieldDelegate {
-
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        return textField != dateTextField
-    }
-
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        viewInFocus = textField
-    }
-
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        viewInFocus = nil
+        guard textField == dateTextField else { return true }
+        view.endEditing(true)
+        showDatePicker(animated: true)
+        return false
     }
 }

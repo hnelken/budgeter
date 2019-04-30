@@ -55,7 +55,7 @@ class BasicTextInputViewController: TypingFocusViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.isNavigationBarHidden = true
-        viewInFocus = button
+//        viewInFocus = button
         setupFromViewModel()
     }
 

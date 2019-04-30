@@ -10,6 +10,8 @@ import UIKit
 
 class TypingFocusViewController: UIViewController {
 
+    @IBOutlet weak var scrollView: UIScrollView?
+
     // MARK: Life Cycle
 
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -22,55 +24,82 @@ class TypingFocusViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        registerKeyboardNotifications()
+        setup()
     }
 
     deinit {
         removeKeyboardNotifications()
     }
 
-    // MARK: - Focus
+    // MARK: - Setup
 
-    var viewInFocus: UIView? {
-        didSet {
-            focusIfNeeded(force: true)
-        }
+    private func setup() {
+        registerKeyboardNotifications()
+        scrollView?.keyboardDismissMode = .interactive
+        setupTapGesture()
     }
 
+    private func setupTapGesture() {
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(didTap))
+        scrollView?.addGestureRecognizer(gesture)
+    }
+
+    // MARK: - Actions
+
+    @objc private func didTap() {
+        view.endEditing(true)
+        releaseNonTypingFocus()
+    }
+
+    func releaseNonTypingFocus() { /* override */ }
+
+    // MARK: - Focus
+
+    // Keyboard hiding approach adapted from:
+    /*
+     https://github.com/mattneub/Programming-iOS-Book-Examples/blob/swift4ios11/bk2ch10p522textFieldScrollView/ch23p805textFieldSliding/ViewController.swift
+    */
+
+    private var lastContentInset = UIEdgeInsets.zero
+    private var lastIndicatorInset = UIEdgeInsets.zero
+    private var lastOffset = CGPoint.zero
     private var keyboardRect: CGRect?
-    private var currentViewOffset: CGFloat = 0.0
 
     private func focusIfNeeded(force: Bool) {
         guard
-            let keyboardRect = keyboardRect,
-            let viewInFocus = viewInFocus
+            let scrollView = scrollView,
+            var keyboardRect = keyboardRect
             else { return }
 
-        let keyboardOriginY = UIScreen.main.bounds.height - keyboardRect.height
-        let movementThreshold = viewInFocus.frame.maxY + 8.0 - currentViewOffset
+        lastContentInset = scrollView.contentInset
+        lastIndicatorInset = scrollView.scrollIndicatorInsets
+        lastOffset = scrollView.contentOffset
 
-        if keyboardOriginY < movementThreshold {
-            let offset = min(movementThreshold - keyboardOriginY, keyboardRect.height)
-            currentViewOffset = offset
-            UIView.animate(withDuration: 0.3) { [weak self] in
-                self?.view.frame.origin.y -= offset
-            }
-        }
+        // Convert keyboard into scroll view coordinates
+        keyboardRect = scrollView.convert(keyboardRect, from: nil)
+
+        let padding: CGFloat = 16.0
+        let inset = keyboardRect.height + padding
+        scrollView.contentInset.bottom = inset
+        scrollView.scrollIndicatorInsets.bottom = inset
     }
 
     private func endFocusIfNeeded() {
-        if view.frame.origin.y != 0.0 {
-            UIView.animate(withDuration: 0.15, animations: { [weak self] in
-                self?.view.frame.origin.y += self?.currentViewOffset ?? 0.0
-            }, completion: { [weak self] _ in
-                self?.currentViewOffset = 0.0
-            })
-        }
+        guard keyboardRect == nil else { return }
+        scrollView?.contentOffset = lastOffset
+        scrollView?.contentInset = lastContentInset
+        scrollView?.scrollIndicatorInsets = lastIndicatorInset
     }
 
     // MARK: - Notifications
 
     private func registerKeyboardNotifications() {
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(keyboardWillShow(_:)),
+            name: .UIKeyboardWillShow,
+            object: view.window
+        )
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(keyboardDidShow(_:)),
@@ -87,6 +116,10 @@ class TypingFocusViewController: UIViewController {
 
     private func removeKeyboardNotifications() {
         NotificationCenter.default.removeObserver(self)
+    }
+
+    @objc private func keyboardWillShow(_ sender: Notification) {
+        releaseNonTypingFocus()
     }
 
     @objc private func keyboardDidShow(_ sender: Notification) {
