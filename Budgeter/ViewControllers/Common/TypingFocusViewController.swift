@@ -47,9 +47,10 @@ class TypingFocusViewController: UIViewController {
             else { return }
 
         let keyboardOriginY = UIScreen.main.bounds.height - keyboardRect.height
-        let movementThreshold = viewInFocus.frame.maxY + 8.0
-        if (view.frame.origin.y == 0.0 || force) && keyboardOriginY < movementThreshold {
-            let offset = movementThreshold - keyboardOriginY
+        let movementThreshold = viewInFocus.frame.maxY + 8.0 - currentViewOffset
+
+        if keyboardOriginY < movementThreshold {
+            let offset = min(movementThreshold - keyboardOriginY, keyboardRect.height)
             currentViewOffset = offset
             UIView.animate(withDuration: 0.3) { [weak self] in
                 self?.view.frame.origin.y -= offset
