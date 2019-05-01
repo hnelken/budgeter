@@ -97,19 +97,19 @@ class TypingFocusViewController: UIViewController {
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(keyboardWillShow(_:)),
-            name: .UIKeyboardWillShow,
+            name: UIResponder.keyboardWillShowNotification,
             object: view.window
         )
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(keyboardDidShow(_:)),
-            name: .UIKeyboardDidShow,
+            name: UIResponder.keyboardDidShowNotification,
             object: view.window
         )
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(keyboardWillHide(_:)),
-            name: .UIKeyboardWillHide,
+            name: UIResponder.keyboardWillHideNotification,
             object: view.window
         )
     }
@@ -123,7 +123,7 @@ class TypingFocusViewController: UIViewController {
     }
 
     @objc private func keyboardDidShow(_ sender: Notification) {
-        keyboardRect = sender.userInfo?[UIKeyboardFrameEndUserInfoKey] as? CGRect
+        keyboardRect = sender.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect
         focusIfNeeded(force: false)
     }
 

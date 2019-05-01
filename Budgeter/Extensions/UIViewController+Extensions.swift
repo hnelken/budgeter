@@ -10,11 +10,11 @@ import UIKit
 
 extension UIViewController {
     func addChild(viewController: UIViewController, toView childView: UIView, toBack: Bool) {
-        addChildViewController(viewController)
+        addChild(viewController)
         childView.addSubview(viewController.view)
         if toBack {
-            childView.sendSubview(toBack: viewController.view)
+            childView.sendSubviewToBack(viewController.view)
         }
-        viewController.didMove(toParentViewController: self)
+        viewController.didMove(toParent: self)
     }
 }

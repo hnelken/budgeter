@@ -66,7 +66,7 @@ final class DashboardViewController: UIViewController {
     private func setupCollectionView() {
         let cellNib = UINib(nibName: DashboardExpenseCollectionCell.identifier, bundle: nil)
         expenseCollectionView.register(cellNib, forCellWithReuseIdentifier: DashboardExpenseCollectionCell.identifier)
-        expenseCollectionView.decelerationRate = UIScrollViewDecelerationRateFast
+        expenseCollectionView.decelerationRate = UIScrollView.DecelerationRate.fast
         expenseCollectionView.showsVerticalScrollIndicator = false
     }
 
