@@ -75,7 +75,7 @@ class TypingFocusViewController: UIViewController {
         lastIndicatorInset = scrollView.scrollIndicatorInsets
         lastOffset = scrollView.contentOffset
 
-        // Convert keyboard into scroll view coordinates
+        // Convert keyboard rect into scroll view coordinates
         keyboardRect = scrollView.convert(keyboardRect, from: nil)
 
         let padding: CGFloat = 16.0

@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol ExpenseEditFlowDelegate: AnyObject {
+    func finishEditingExpense()
+}
+
 class ExpenseEditViewController: TypingFocusViewController {
 
     @IBOutlet weak var datePickerHeightConstraint: NSLayoutConstraint!
@@ -21,8 +25,10 @@ class ExpenseEditViewController: TypingFocusViewController {
     @IBOutlet weak var paymentMethodTextField: UITextField!
     @IBOutlet weak var commentsTextField: UITextField!
 
+    weak var flowDelegate: ExpenseEditFlowDelegate?
+
     // MARK: - Lifecycle
-    
+
     init() {
         super.init(nibName: "ExpenseEditViewController", bundle: Bundle(for: ExpenseEditViewController.self))
     }

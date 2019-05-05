@@ -1,19 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DashboardViewController" customModule="Budgeter" customModuleProvider="target">
             <connections>
                 <outlet property="carouselView" destination="j2y-Uk-xQW" id="oM4-K8-yn7"/>
-                <outlet property="expenseCollectionLayout" destination="sf6-xF-NVm" id="dQZ-YH-kJY"/>
-                <outlet property="expenseCollectionView" destination="A9j-oF-zUY" id="s56-ny-Tga"/>
                 <outlet property="nextButton" destination="jhg-uZ-AsF" id="XbX-W9-2rT"/>
                 <outlet property="previousButton" destination="VJf-9f-8dH" id="qa0-Pe-8Gp"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -66,36 +64,7 @@
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j2y-Uk-xQW" userLabel="Carousel View" customClass="CarouselView" customModule="Budgeter" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="28" width="343" height="467"/>
-                            <subviews>
-                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="A9j-oF-zUY">
-                                    <rect key="frame" x="0.0" y="0.0" width="343" height="467"/>
-                                    <color key="backgroundColor" white="0.0" alpha="0.45000000000000001" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <collectionViewLayout key="collectionViewLayout" id="sf6-xF-NVm" customClass="UltravisualLayout" customModule="Budgeter" customModuleProvider="target"/>
-                                    <connections>
-                                        <outlet property="dataSource" destination="-1" id="9Wp-YT-w02"/>
-                                        <outlet property="delegate" destination="-1" id="nwL-Ov-i8g"/>
-                                    </connections>
-                                </collectionView>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qsZ-E7-bPF" userLabel="TestCarouselView">
-                                    <rect key="frame" x="0.0" y="0.0" width="343" height="467"/>
-                                    <color key="backgroundColor" red="0.31764705879999999" green="0.61176470589999998" blue="0.43137254899999999" alpha="1" colorSpace="calibratedRGB"/>
-                                </view>
-                            </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <constraints>
-                                <constraint firstAttribute="trailing" secondItem="qsZ-E7-bPF" secondAttribute="trailing" id="0Wh-hy-ioB"/>
-                                <constraint firstItem="qsZ-E7-bPF" firstAttribute="leading" secondItem="j2y-Uk-xQW" secondAttribute="leading" id="45t-AG-Gn9"/>
-                                <constraint firstAttribute="trailing" secondItem="A9j-oF-zUY" secondAttribute="trailing" id="80R-ws-6i9"/>
-                                <constraint firstItem="A9j-oF-zUY" firstAttribute="top" secondItem="j2y-Uk-xQW" secondAttribute="top" id="J5E-Vc-TUE"/>
-                                <constraint firstAttribute="bottom" secondItem="A9j-oF-zUY" secondAttribute="bottom" id="L7J-R9-2ar"/>
-                                <constraint firstAttribute="bottom" secondItem="qsZ-E7-bPF" secondAttribute="bottom" id="gWP-ot-xSf"/>
-                                <constraint firstItem="A9j-oF-zUY" firstAttribute="leading" secondItem="j2y-Uk-xQW" secondAttribute="leading" id="tqn-bb-UFH"/>
-                                <constraint firstItem="qsZ-E7-bPF" firstAttribute="top" secondItem="j2y-Uk-xQW" secondAttribute="top" id="yGk-6B-2Dh"/>
-                            </constraints>
-                            <connections>
-                                <outletCollection property="carouselSubviews" destination="A9j-oF-zUY" collectionClass="NSMutableArray" id="IJg-tX-N6F"/>
-                                <outletCollection property="carouselSubviews" destination="qsZ-E7-bPF" collectionClass="NSMutableArray" id="YiR-0E-bek"/>
-                            </connections>
                         </view>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -182,7 +151,7 @@
         </view>
     </objects>
     <resources>
-        <image name="white-hamburger" width="14" height="14"/>
+        <image name="white-hamburger" width="24" height="24"/>
         <image name="white-left-arrow" width="32" height="32"/>
         <image name="white-plus" width="32" height="32"/>
     </resources>

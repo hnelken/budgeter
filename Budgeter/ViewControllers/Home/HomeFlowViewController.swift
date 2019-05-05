@@ -122,20 +122,23 @@ extension HomeFlowViewController: DashboardFlowDelegate {
     func createNewExpense() {
         flowDelegate?.createNewExpense()
     }
-
-    func logOut() {
-        flowDelegate?.logOut()
-    }
-
 }
 
 extension HomeFlowViewController: HamburgerMenuFlowDelegate {
     func didSelect(menuItem: HamburgerMenuItem) {
         switch menuItem {
+        case .other:
+            showOther()
         case .logOut:
             logOut()
-        default:
-            break
         }
+    }
+
+    private func showOther() {
+        print("other")
+    }
+
+    private func logOut() {
+        flowDelegate?.logOut()
     }
 }

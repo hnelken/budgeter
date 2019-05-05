@@ -1,5 +1,5 @@
 //
-//  DashboardExpenseCellViewModel.swift
+//  ExpenseCollectionCellViewModel.swift
 //  Budgeter
 //
 //  Created by Harry Nelken on 12/28/18.
@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-final class DashboardExpenseCellViewModel {
+final class ExpenseCollectionCellViewModel {
 
     private let expense: Expense
 

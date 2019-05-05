@@ -10,10 +10,10 @@ import UIKit
 
 class CarouselView: UIView {
 
-    @IBOutlet var carouselSubviews: [UIView]!
-    private var currentIndex = 0
+    private var carouselSubviews = [UIView]()
+    private(set) var currentIndex = 0
 
-    // MARK: - Transform constants
+    // MARK: - Transform Constants
 
     private var leftTransform: CGAffineTransform {
         return CGAffineTransform(translationX: -2 * bounds.width, y: 0)
@@ -21,6 +21,17 @@ class CarouselView: UIView {
 
     private var rightTransform: CGAffineTransform {
         return CGAffineTransform(translationX: 2 * bounds.width, y: 0)
+    }
+
+    // MARK: - Data Source
+
+    func addCarouselView(_ view: UIView) {
+        addSubview(view)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.layoutAttachAll()
+        view.transform = rightTransform
+        carouselSubviews.append(view)
+        setNeedsLayout()
     }
 
     // MARK: - Paging
@@ -39,20 +50,10 @@ class CarouselView: UIView {
     func nextPage() {
         guard
             carouselSubviews.count > 1,
-            currentIndex < carouselSubviews.count
+            let oldCenterView = carouselSubviews[safely: currentIndex]
             else { return }
-
-        let oldCenterView = carouselSubviews[currentIndex]
-
-        let newCenterView: UIView
-        if currentIndex == carouselSubviews.count - 1 {
-            currentIndex = 0
-            newCenterView = carouselSubviews[currentIndex]
-        } else {
-            currentIndex += 1
-            newCenterView = carouselSubviews[currentIndex]
-        }
-
+        currentIndex = carouselSubviews.wrappedIndex(after: currentIndex)
+        let newCenterView = carouselSubviews[currentIndex]
         newCenterView.transform = rightTransform
         UIView.animate(withDuration: 0.25) {
             oldCenterView.transform = self.leftTransform
@@ -61,18 +62,12 @@ class CarouselView: UIView {
     }
 
     func previousPage() {
-        guard currentIndex < carouselSubviews.count else { return }
-        let oldCenterView = carouselSubviews[currentIndex]
-
-        let newCenterView: UIView
-        if currentIndex == 0 {
-            currentIndex = carouselSubviews.count - 1
-            newCenterView = carouselSubviews[currentIndex]
-        } else {
-            currentIndex -= 1
-            newCenterView = carouselSubviews[currentIndex]
-        }
-
+        guard
+            carouselSubviews.count > 1,
+            let oldCenterView = carouselSubviews[safely: currentIndex]
+            else { return }
+        currentIndex = carouselSubviews.wrappedIndex(before: currentIndex)
+        let newCenterView = carouselSubviews[currentIndex]
         newCenterView.transform = leftTransform
         UIView.animate(withDuration: 0.25) {
             oldCenterView.transform = self.rightTransform

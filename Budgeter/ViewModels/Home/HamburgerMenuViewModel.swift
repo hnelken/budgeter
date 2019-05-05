@@ -29,31 +29,22 @@ final class HamburgerMenuViewModel {
     }
 
     private var rows: [HamburgerMenuItem] = [
-//        .item1,
-//        .item2,
+        .other,
         .logOut
     ]
 }
 
 enum HamburgerMenuItem {
-    case item1
-    case item2
+    case other
     case logOut
 
     var viewModel: HamburgerMenuCellViewModel {
         switch self {
-        case .item1:
-            break
-        case .item2:
-            break
+        case .other:
+            return HamburgerMenuCellViewModel(title: "Other", iconName: "power-off")
         case .logOut:
             return HamburgerMenuCellViewModel(title: "Log Out", iconName: "power-off")
         }
-
-        return HamburgerMenuCellViewModel(
-            title: "ItemTitle",
-            iconName: "imageName"
-        )
     }
 }
 

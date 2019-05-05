@@ -8,9 +8,9 @@
 
 import UIKit
 
-class DashboardExpenseCollectionCell: UICollectionViewCell {
+class ExpenseCollectionCell: UICollectionViewCell {
 
-    static let identifier = "DashboardExpenseCollectionCell"
+    static let identifier = String(describing: ExpenseCollectionCell.self)
 
     @IBOutlet weak var coverView: UIView!
     @IBOutlet weak var nameLabel: UILabel!
@@ -20,7 +20,7 @@ class DashboardExpenseCollectionCell: UICollectionViewCell {
     @IBOutlet weak var commentLabel: UILabel!
     @IBOutlet weak var commentTitleLabel: UILabel!
 
-    func configure(with viewModel: DashboardExpenseCellViewModel) {
+    func configure(with viewModel: ExpenseCollectionCellViewModel) {
         nameLabel.attributedText = viewModel.nameLabelAttributedText
         amountLabel.attributedText = viewModel.amountLabelAttributedText
         paymentMethodLabel.attributedText = viewModel.amountLabelAttributedText

@@ -11,7 +11,7 @@ import UIKit
 class HamburgerMenuTableViewCell: UITableViewCell {
 
     static let height: CGFloat = 80
-    static let identifier = "HamburgerMenuTableViewCell"
+    static let identifier = String(describing: HamburgerMenuTableViewCell.self)
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var iconView: UIImageView!
