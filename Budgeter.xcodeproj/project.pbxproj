@@ -169,7 +169,6 @@
 		D8847B6B21583724007B77D2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				D8CFCA0021DF287D001592A9 /* Nibs */,
 				D8285F4D218FC79100016F4A /* Common */,
 				D8847B6D2158373D007B77D2 /* Dashboard */,
 			);
@@ -205,6 +204,15 @@
 				D8AA35D5227FC32E007C71FB /* CategoryTableViewModel.swift */,
 			);
 			path = Categories;
+			sourceTree = "<group>";
+		};
+		D8AA35D7227FD738007C71FB /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				D8AA35C0227A856D007C71FB /* BasicTableViewController.xib */,
+				D8CC1DA1205F4D8A008A5173 /* BasicTextInputViewController.xib */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 		D8AB841A2158363D00A1EE58 /* ViewControllers */ = {
@@ -282,6 +290,7 @@
 				D8CC1D76205F480C008A5173 /* AppDelegate.swift */,
 				D83E8CC622472037007D9274 /* Extensions */,
 				D836D69B2198CCCE00D3E839 /* Coordinators */,
+				D8CFCA0021DF287D001592A9 /* Nibs */,
 				D8847B6B21583724007B77D2 /* Views */,
 				D8AB841B2158365B00A1EE58 /* ViewModels */,
 				D8AB841A2158363D00A1EE58 /* ViewControllers */,
@@ -323,15 +332,14 @@
 		D8CFCA0021DF287D001592A9 /* Nibs */ = {
 			isa = PBXGroup;
 			children = (
-				D8AA35C0227A856D007C71FB /* BasicTableViewController.xib */,
-				D8CC1DA1205F4D8A008A5173 /* BasicTextInputViewController.xib */,
-				D8CFCA0121DF2917001592A9 /* Dashboard */,
+				D8AA35D7227FD738007C71FB /* Common */,
+				D8CFCA0121DF2917001592A9 /* Home */,
 				D83103FA21C49AE600DD3376 /* Expense */,
 			);
 			path = Nibs;
 			sourceTree = "<group>";
 		};
-		D8CFCA0121DF2917001592A9 /* Dashboard */ = {
+		D8CFCA0121DF2917001592A9 /* Home */ = {
 			isa = PBXGroup;
 			children = (
 				D80FDD932237600F007EE8B7 /* HomeFlowViewController.xib */,
@@ -339,7 +347,7 @@
 				D8E886722235DFCE009FF0C8 /* HamburgerMenuViewController.xib */,
 				D80FDD8F2235F27B007EE8B7 /* HamburgerMenuTableViewCell.xib */,
 			);
-			path = Dashboard;
+			path = Home;
 			sourceTree = "<group>";
 		};
 		D8FACC36215836CF0011CC98 /* Login */ = {

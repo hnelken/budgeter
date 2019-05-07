@@ -23,7 +23,7 @@ class ExpenseCollectionCell: UICollectionViewCell {
     func configure(with viewModel: ExpenseCollectionCellViewModel) {
         nameLabel.attributedText = viewModel.nameLabelAttributedText
         amountLabel.attributedText = viewModel.amountLabelAttributedText
-        paymentMethodLabel.attributedText = viewModel.amountLabelAttributedText
+        paymentMethodLabel.text = "Debit"
         dateLabel.attributedText = viewModel.dateLabelAttributedText
         commentLabel.attributedText = viewModel.commentLabelAttributedText
     }
@@ -56,15 +56,9 @@ class ExpenseCollectionCell: UICollectionViewCell {
 
     private func scaleSubviews(with transform: CGAffineTransform) {
         nameLabel.transform = transform
-//        commentLabel.transform = transform
-//        commentTitleLabel.transform = transform
-//        amountLabel.transform = transform
-//        dateLabel.transform = transform
     }
 
     private func fadeSubviews(withAlpha alpha: CGFloat) {
-//        amountLabel.alpha = alpha
-//        dateLabel.alpha = alpha
         commentLabel.alpha = alpha
         commentTitleLabel.alpha = alpha
     }

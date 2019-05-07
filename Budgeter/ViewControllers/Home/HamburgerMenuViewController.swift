@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HamburgerMenuViewController: UIViewController {
+final class HamburgerMenuViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
 

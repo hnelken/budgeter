@@ -13,7 +13,7 @@ protocol HomeFlowDelegate: AnyObject {
     func createNewExpense()
 }
 
-class HomeFlowViewController: UIViewController {
+final class HomeFlowViewController: UIViewController {
 
     // MARK: - Outlets
 

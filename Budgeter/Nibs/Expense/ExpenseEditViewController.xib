@@ -20,6 +20,7 @@
                 <outlet property="datePickerHeightConstraint" destination="lqT-NE-EAk" id="Eva-5A-XRG"/>
                 <outlet property="dateTextField" destination="jbd-Wi-8jN" id="9wq-Kj-ah0"/>
                 <outlet property="dollarsTextField" destination="DHn-XD-kPa" id="NQX-CQ-sfH"/>
+                <outlet property="doneButton" destination="Ewb-jl-P3f" id="NeN-S8-2DW"/>
                 <outlet property="nameTextField" destination="Wim-hZ-Ub3" id="Oeh-bh-d15"/>
                 <outlet property="paymentMethodTextField" destination="nIw-mA-em5" id="5ef-aa-sus"/>
                 <outlet property="scrollView" destination="xtx-uu-L79" id="oJ9-PS-qX1"/>
@@ -40,20 +41,6 @@
                     <color key="textColor" red="0.066666666669999999" green="0.066666666669999999" blue="0.066666666669999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kaM-lF-0hH" customClass="RoundedButton" customModule="Budgeter" customModuleProvider="target">
-                    <rect key="frame" x="16" y="40" width="44" height="44"/>
-                    <color key="backgroundColor" red="0.29411764709999999" green="0.29411764709999999" blue="0.29411764709999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="44" id="mNA-vL-z9w"/>
-                        <constraint firstAttribute="height" constant="44" id="rbT-ge-y01"/>
-                    </constraints>
-                    <state key="normal" image="white-left-arrow">
-                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </state>
-                    <connections>
-                        <action selector="backButtonPressed:" destination="-1" eventType="touchUpInside" id="JP9-Qe-YOg"/>
-                    </connections>
-                </button>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xtx-uu-L79">
                     <rect key="frame" x="0.0" y="108" width="375" height="559"/>
                     <subviews>
@@ -142,9 +129,6 @@
                                     <nil key="textColor"/>
                                     <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="18"/>
                                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                                    <connections>
-                                        <action selector="dateTextFieldTapped:" destination="-1" eventType="touchUpInside" id="7JA-cF-8LN"/>
-                                    </connections>
                                 </textField>
                                 <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="dWi-nH-qGf">
                                     <rect key="frame" x="16" y="306" width="343" height="150"/>
@@ -249,23 +233,68 @@
                         <constraint firstAttribute="bottom" secondItem="ilH-Ro-g6d" secondAttribute="bottom" id="gaj-SD-Oek"/>
                     </constraints>
                 </scrollView>
+                <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kaM-lF-0hH" customClass="RoundedButton" customModule="Budgeter" customModuleProvider="target">
+                    <rect key="frame" x="16" y="40" width="80" height="44"/>
+                    <color key="backgroundColor" red="0.29411764709999999" green="0.29411764709999999" blue="0.29411764709999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="80" id="mNA-vL-z9w"/>
+                        <constraint firstAttribute="height" constant="44" id="rbT-ge-y01"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="16"/>
+                    <state key="normal" title="Cancel">
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="cancelButtonPressed:" destination="-1" eventType="touchUpInside" id="JP9-Qe-YOg"/>
+                    </connections>
+                </button>
+                <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fdW-fl-foC" userLabel="Fake Done Button" customClass="RoundedButton" customModule="Budgeter" customModuleProvider="target">
+                    <rect key="frame" x="279" y="40" width="80" height="44"/>
+                    <color key="backgroundColor" red="0.29411764709999999" green="0.29411764709999999" blue="0.29411764709999999" alpha="0.64290583053691275" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="1Io-p3-Poy"/>
+                        <constraint firstAttribute="width" constant="80" id="keO-WK-wTL"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="16"/>
+                    <state key="normal" title="Done">
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                </button>
+                <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ewb-jl-P3f" customClass="RoundedButton" customModule="Budgeter" customModuleProvider="target">
+                    <rect key="frame" x="279" y="40" width="80" height="44"/>
+                    <color key="backgroundColor" red="0.29411764709999999" green="0.29411764709999999" blue="0.29411764709999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="ovl-lk-J5Q"/>
+                        <constraint firstAttribute="width" constant="80" id="u2Z-gr-pYp"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="16"/>
+                    <state key="normal" title="Done">
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="doneButtonPressed:" destination="-1" eventType="touchUpInside" id="pEZ-OD-zzT"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="xtx-uu-L79" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="6Bn-g7-nEz"/>
                 <constraint firstItem="kaM-lF-0hH" firstAttribute="centerY" secondItem="Ew2-tW-cox" secondAttribute="centerY" id="GVH-hO-YFN"/>
+                <constraint firstItem="fdW-fl-foC" firstAttribute="centerY" secondItem="Ewb-jl-P3f" secondAttribute="centerY" id="GfD-Oi-aAS"/>
                 <constraint firstItem="Ew2-tW-cox" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="KFB-Mn-1dc"/>
+                <constraint firstItem="Ewb-jl-P3f" firstAttribute="centerY" secondItem="Ew2-tW-cox" secondAttribute="centerY" id="KRs-3h-2HM"/>
+                <constraint firstItem="fdW-fl-foC" firstAttribute="width" secondItem="Ewb-jl-P3f" secondAttribute="width" id="L2z-5X-MD4"/>
                 <constraint firstItem="Ew2-tW-cox" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="40" id="R6P-Mt-mPr"/>
                 <constraint firstItem="xtx-uu-L79" firstAttribute="top" secondItem="Ew2-tW-cox" secondAttribute="bottom" constant="24" id="TbA-SS-45I"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Ewb-jl-P3f" secondAttribute="trailing" constant="16" id="VPn-ec-93r"/>
+                <constraint firstItem="fdW-fl-foC" firstAttribute="height" secondItem="Ewb-jl-P3f" secondAttribute="height" id="Xa6-MT-DSg"/>
                 <constraint firstItem="kaM-lF-0hH" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="Znq-NS-BYk"/>
                 <constraint firstItem="xtx-uu-L79" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="bWY-cR-MwJ"/>
+                <constraint firstItem="fdW-fl-foC" firstAttribute="centerX" secondItem="Ewb-jl-P3f" secondAttribute="centerX" id="ltC-46-KRd"/>
                 <constraint firstItem="xtx-uu-L79" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="u8X-fv-Q0N"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <point key="canvasLocation" x="135" y="237"/>
+            <point key="canvasLocation" x="133.59999999999999" y="236.13193403298354"/>
         </view>
     </objects>
-    <resources>
-        <image name="white-left-arrow" width="32" height="32"/>
-    </resources>
 </document>

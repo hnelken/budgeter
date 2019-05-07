@@ -19,7 +19,6 @@ final class AppFlowCoordinator {
     private init() { setup() }
     
     let navigationController = UINavigationController()
-    private var modalNewExpenseFlow: ExpenseEditViewController?
     private(set) var currentSessionUser: User?
 
     private func setup() {
@@ -36,7 +35,6 @@ final class AppFlowCoordinator {
         let expenseEdit = ExpenseEditViewController()
         expenseEdit.flowDelegate = self
         navigationController.pushViewController(expenseEdit, animated: true)
-        self.modalNewExpenseFlow = expenseEdit
     }
 }
 
@@ -80,7 +78,6 @@ extension AppFlowCoordinator: HomeFlowDelegate {
 
 extension AppFlowCoordinator: ExpenseEditFlowDelegate {
     func finishEditingExpense() {
-        navigationController.dismiss(animated: true)
-        modalNewExpenseFlow = nil
+        navigationController.popViewController(animated: true)
     }
 }
